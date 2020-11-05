@@ -235,7 +235,7 @@ spacing=15,
             layout = wibox.layout.fixed.horizontal,
             -- mykeyboardlayout,
             -- wibox.widget.systray(),
-            wibox.layout.margin(wibox.widget.systray(), 3, 3, 3, 3),
+            wibox.layout.margin(wibox.widget.systray(), 4, 4, 4, 4),
 
             wibox.layout.margin(
             volumebar_widget({
@@ -437,13 +437,60 @@ clientkeys = gears.table.join(
             c.maximized = not c.maximized
             c:raise()
         end ,
+
         {description = "(un)maximize", group = "client"}),
-    awful.key({ modkey, "Control" }, "m",
+    -- awful.key({ modkey, "Control" }, "m",
+    --     function (c)
+    --         c.maximized_vertical = not c.maximized_vertical
+    --         c:raise()
+    --     end ,
+    --     {description = "(un)maximize vertically", group = "client"}),
+
+
+
+    awful.key({ modkey, "Mod1" }, "Left",
         function (c)
-            c.maximized_vertical = not c.maximized_vertical
+            if c.width == c.screen.workarea.width*0.5 
+              then c.width=c.screen.workarea.width*0.33
+              else c.width=c.screen.workarea.width*0.5
+            end
+           
+            awful.placement.left(c)
+            c.height=c.screen.workarea.height-8
+            c.y=c.screen.workarea.y
             c:raise()
         end ,
         {description = "(un)maximize vertically", group = "client"}),
+    awful.key({ modkey, "Mod1" }, "c",
+        function (c)
+            if c.width == c.screen.workarea.width*0.5 
+              then c.width=c.screen.workarea.width*0.33
+              else c.width=c.screen.workarea.width*0.5
+            end
+            awful.placement.centered(c)
+            c.height=c.screen.workarea.height-8
+            c.y=c.screen.workarea.y
+            c:raise()
+        end ,
+        {description = "(un)maximize vertically", group = "client"}),
+    awful.key({ modkey, "Mod1" }, "Right",
+        function (c)
+            if c.width == c.screen.workarea.width*0.5 
+              then c.width=c.screen.workarea.width*0.33
+              else c.width=c.screen.workarea.width*0.5
+            end
+            awful.placement.right(c)
+            c.height=c.screen.workarea.height-8
+            c.y=c.screen.workarea.y
+            c:raise()
+        end ,
+        {description = "(un)maximize vertically", group = "client"}),
+
+    -- awful.key({ modkey, "Mod1"   }, "Left", awful.placement.left),
+    -- awful.key({ modkey, "Mod1"   }, "Right", awful.placement.right),
+    -- awful.key({ modkey, "Mod1"   }, "c", awful.placement.centered),
+
+
     awful.key({ modkey, "Shift"   }, "m",
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
@@ -712,3 +759,4 @@ awful.util.spawn("compton  --backend glx --vsync opengl-swc ")
 -- awful.util.spawn('xsetroot -solid "#333333"')
 gears.wallpaper.set("#222222");
 
+awful.util.spawn("nitrogen --restore &")
