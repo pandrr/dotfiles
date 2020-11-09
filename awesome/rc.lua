@@ -472,8 +472,6 @@ clientkeys = gears.table.join(
               {description = "toggle keep on top", group = "Window"}),
     awful.key({ modkey,           }, "h",
         function (c)
-            -- The client currently has the input focus, so it cannot be
-            -- minimized, since minimized clients can't have the focus.
             c.minimized = true
         end ,
         {description = "minimize current", group = "Window"}),
@@ -485,6 +483,15 @@ clientkeys = gears.table.join(
 			end
         end ,
         {description = "minimize others", group = "Window"}),
+
+    awful.key({ modkey,"Shift"           }, "h",
+        function (c)
+			local clients = awful.tag.selected(1):clients()
+			for k,ic in pairs(clients) do
+    			ic.minimized = false
+			end
+        end ,
+        {description = "unminimize all", group = "Window"}),
 
 
 
