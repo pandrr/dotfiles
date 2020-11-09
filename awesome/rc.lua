@@ -94,6 +94,7 @@ myawesomemenu = {
    { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
    { "quit", function() awesome.quit() end },
+   { "sleep", function() awful.util.spawn("systemctl suspend") end },
 }
 
 local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon }
@@ -272,9 +273,9 @@ end)
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
+    awful.button({ }, 3, function () mymainmenu:toggle() end)
+    -- awful.button({ }, 4, awful.tag.viewnext),
+    -- awful.button({ }, 5, awful.tag.viewprev)
 ))
 -- }}}
 
@@ -349,6 +350,36 @@ awful.key({ modkey, "Shift"   }, "Tab",
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
+
+    -- awful.key({ modkey   }, "c", function()
+
+	    -- awful.util.spawn("sh -c 'xdotool sleep 0.1 key --clearmodifiers Down'") 
+        -- root.fake_input('key_release', modkey)
+
+  -- root.fake_input('key_release'  , 'Super_L')
+  --       root.fake_input('key_press'  , "Control_L")
+  --        root.fake_input('key_press'  , "c")
+		--  root.fake_input('key_release', "c")
+  --       root.fake_input('key_release', "Control_L")
+
+  --       --root.fake_input("key_press", 64)
+		-- end,
+  --       {description = "quit awesome", group = "awesome"}),
+
+
+
+
+  --   awful.key({ modkey   }, "c", function()
+  --   	awful.util.spawn("xdotool key ctrl+c")
+		-- end,
+  --       {description = "quit awesome", group = "awesome"}),
+
+  --   awful.key({ modkey   }, "v", function()
+  --   	awful.util.spawn("xdotool key ctrl+v")
+		-- end,
+  --       {description = "quit awesome", group = "awesome"}),
+
+
 
     -- awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
     --           {description = "increase master width factor", group = "layout"}),
@@ -461,7 +492,16 @@ clientkeys = gears.table.join(
     --     end ,
     --     {description = "(un)maximize vertically", group = "client"}),
 
+    awful.key({ modkey, "Mod1" }, "4",
+        function (c)
+        	awful.util.spawn("maim -s ~/Pictures/screenshot_$(date +%s).png")
+        end,
+        {description = "screenshot area", group = "client"}),
 
+        awful.key({ modkey, "Mod1" }, "3", function (c)
+        	awful.util.spawn("gnome-screenshot")
+        end ,
+      {description = "screenshot of whole screen", group = "client"}),
 
     awful.key({ modkey, "Mod1" }, "Left",
         function (c)
@@ -753,8 +793,8 @@ end)
 
 beautiful.notification_font="Monospace 12"
 beautiful.notification_margin=40
-beautiful.notification_max_width=600
-beautiful.notification_icon_size=100
+beautiful.notification_max_width=500
+beautiful.notification_icon_size=50
 
 
 beautiful.menu_font="Monospace 11"
@@ -764,7 +804,6 @@ beautiful.menu_border_width=8
 beautiful.menu_bg_focus="#444444"
 beautiful.menu_fg_focus="#ffffff"
 beautiful.menu_fg_normal="#999999"
-
 
 beautiful.taglist_bg_focus="#555555"
 beautiful.taglist_fg_focus="#ffffff"
@@ -795,3 +834,5 @@ awful.util.spawn("compton  --backend glx --vsync opengl-swc ")
 gears.wallpaper.set("#222222");
 
 awful.util.spawn("nitrogen --restore &")
+
+

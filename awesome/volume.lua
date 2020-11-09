@@ -70,7 +70,9 @@ local function worker(args)
         elseif (button == 5) then
             awful.spawn(dec_volume_cmd)
         elseif (button == 1) then
-            awful.spawn(tog_volume_cmd)
+            -- awful.spawn(tog_volume_cmd)
+            awful.util.spawn("pavucontrol")
+
         end
 
         spawn.easy_async(get_volume_cmd, function(stdout, stderr, exitreason, exitcode)
