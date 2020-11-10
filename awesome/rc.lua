@@ -133,6 +133,16 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- mytextclock = wibox.widget.textclock();
 mytextclock = awful.widget.textclock('<span color="#ffffff" font="monospace 12" >%a %d.%m %H:%M </span>')
 
+
+function cycleClientWidth(c)
+
+    if c.width == math.floor(c.screen.workarea.width*0.33) then c.width=c.screen.workarea.width*0.5
+      else if c.width == math.floor(c.screen.workarea.width*0.5) then c.width=c.screen.workarea.width*0.66	
+        else c.width=math.floor(c.screen.workarea.width*0.33) end
+      end
+
+end
+
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
@@ -520,12 +530,11 @@ clientkeys = gears.table.join(
 
     awful.key({ modkey, "Mod1" }, "Left",
         function (c)
-            if c.width == math.floor(c.screen.workarea.width*0.33) then c.width=c.screen.workarea.width*0.5
-              else if c.width == math.floor(c.screen.workarea.width*0.5) then c.width=c.screen.workarea.width*0.66	
-                else c.width=math.floor(c.screen.workarea.width*0.33) end
-              end
-         
+         	local oldX=c.x;
             awful.placement.left(c)
+
+            if oldX==c.x then cycleClientWidth(c) end
+
             c.height=c.screen.workarea.height-8
             c.y=c.screen.workarea.y
             c:raise()
@@ -535,12 +544,14 @@ clientkeys = gears.table.join(
 
     awful.key({ modkey, "Mod1" }, "c",
         function (c)
-
-            if c.width == math.floor(c.screen.workarea.width*0.33) then c.width=c.screen.workarea.width*0.5
-              else if c.width == math.floor(c.screen.workarea.width*0.5) then c.width=c.screen.workarea.width*0.66	
-                else c.width=math.floor(c.screen.workarea.width*0.33) end
-              end
+            local oldX=c.x
             awful.placement.centered(c)
+
+            if oldX == c.x then
+            	cycleClientWidth(c)
+            	awful.placement.centered(c)
+            end
+
             c.height=c.screen.workarea.height-8
             c.y=c.screen.workarea.y
             c:raise()
@@ -551,11 +562,15 @@ clientkeys = gears.table.join(
 
     awful.key({ modkey, "Mod1" }, "Right",
         function (c)
-            if c.width == math.floor(c.screen.workarea.width*0.33) then c.width=c.screen.workarea.width*0.5
-              else if c.width == math.floor(c.screen.workarea.width*0.5) then c.width=c.screen.workarea.width*0.66	
-                else c.width=math.floor(c.screen.workarea.width*0.33) end
-              end
+        	
+        	local oldX=c.x
             awful.placement.right(c)
+
+            if oldX==c.x then
+            	cycleClientWidth(c) 
+            	awful.placement.right(c)
+            end
+
             c.height=c.screen.workarea.height-8
             c.y=c.screen.workarea.y
             c:raise()
@@ -567,7 +582,24 @@ clientkeys = gears.table.join(
     awful.key({ modkey,"Mod1"        }, "f",
 
         function (c)
-            c.maximized = not c.maximized
+        	if c.width==c.screen.workarea.width
+    		then
+    			c.width=c.widthBeforeFullscreen
+    			c.height=c.heightBeforeFullscreen
+    			c.x=c.xBeforeFullscreen
+    			c.y=c.yBeforeFullscreen
+    		else
+    			c.widthBeforeFullscreen=c.width
+    			c.heightBeforeFullscreen=c.height
+    			c.xBeforeFullscreen=c.x
+    			c.yBeforeFullscreen=c.y
+
+				c.width=c.screen.workarea.width
+				c.height=c.screen.workarea.height
+				c.x=c.screen.workarea.x
+				c.y=c.screen.workarea.y
+    		end
+
             c:raise()
         end ,
 
@@ -857,17 +889,14 @@ beautiful.titlebar_bg="#181818"
 beautiful.border_focus="#333333"
 beautiful.titlebar_bg_focus="#333333"
 
-beautiful.systray_icon_spacing=6
+beautiful.systray_icon_spacing=10
 
 beautiful.bg_normal="#222222"
 
-awful.util.spawn("compton  --backend glx --vsync opengl-swc ")
-
--- awful.util.spawn('xsetroot -solid "#333333"')
 gears.wallpaper.set("#222222");
 
+beautiful.border_width = 0
+
+awful.util.spawn("compton  --backend glx --vsync opengl-swc ")
 awful.util.spawn("nitrogen --restore &")
 
-
-
-beautiful.border_width =0

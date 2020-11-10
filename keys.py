@@ -1,6 +1,10 @@
 import re
 from xkeysnail.transform import *
 
+define_modmap({
+    Key.CAPSLOCK: Key.LEFT_CTRL
+})
+
 define_keymap(None, {
     K("Super-a"): K("C-a"),
     K("Super-b"): K("C-b"),
