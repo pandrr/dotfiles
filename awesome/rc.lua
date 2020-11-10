@@ -178,11 +178,11 @@ local tasklist_buttons = gears.table.join(
                      awful.button({ }, 3, function()
                                               -- awful.menu.client_list({ theme = { width = 250 } })
                                           end),
-                     awful.button({ }, 4, function ()
-                                              -- awful.client.focus.byidx(1)
-                                          end),
-                     awful.button({ }, 5, function ()
-                                              -- awful.client.focus.byidx(-1)
+                     awful.button({ }, 8, function ()
+                                              awful.client.focus.byidx(1)
+                                         end),
+                     awful.button({ }, 9, function ()
+                                              awful.client.focus.byidx(-1)
                                           end))
 
 local function set_wallpaper(s)
@@ -354,6 +354,9 @@ awful.key({ modkey, "Shift"   }, "Tab",
 
 
     -- Standard program
+    awful.key({ modkey,           }, "\\", function () awful.spawn("kitty ranger") end,
+              {description = "open ranger", group = "launcher"}),
+
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
@@ -514,7 +517,8 @@ clientkeys = gears.table.join(
 
     awful.key({ modkey, "Mod1" }, "4",
         function (c)
-        	awful.util.spawn("maim -s ~/Pictures/screenshot_$(date +%s).png")
+
+        	awful.spawn.easy_async_with_shell("maim -s ~/Pictures/screenshot_$(date +%s).png &")
         end,
         {description = "screenshot area", group = "screenshot"}),
 
@@ -535,7 +539,7 @@ clientkeys = gears.table.join(
 
             if oldX==c.x then cycleClientWidth(c) end
 
-            c.height=c.screen.workarea.height-8
+            c.height=c.screen.workarea.height-(8*2)
             c.y=c.screen.workarea.y
             c:raise()
         end ,
@@ -552,7 +556,7 @@ clientkeys = gears.table.join(
             	awful.placement.centered(c)
             end
 
-            c.height=c.screen.workarea.height-8
+            c.height=c.screen.workarea.height-(8*2)
             c.y=c.screen.workarea.y
             c:raise()
         end ,
@@ -571,7 +575,7 @@ clientkeys = gears.table.join(
             	awful.placement.right(c)
             end
 
-            c.height=c.screen.workarea.height-8
+            c.height=c.screen.workarea.height-(8*2)
             c.y=c.screen.workarea.y
             c:raise()
         end ,
@@ -582,7 +586,7 @@ clientkeys = gears.table.join(
     awful.key({ modkey,"Mod1"        }, "f",
 
         function (c)
-        	if c.width==c.screen.workarea.width
+        	if c.width==c.screen.workarea.width-(8*2)
     		then
     			c.width=c.widthBeforeFullscreen
     			c.height=c.heightBeforeFullscreen
@@ -594,8 +598,8 @@ clientkeys = gears.table.join(
     			c.xBeforeFullscreen=c.x
     			c.yBeforeFullscreen=c.y
 
-				c.width=c.screen.workarea.width
-				c.height=c.screen.workarea.height
+				c.width=c.screen.workarea.width-(8*2)
+				c.height=c.screen.workarea.height-(8*2)
 				c.x=c.screen.workarea.x
 				c.y=c.screen.workarea.y
     		end
