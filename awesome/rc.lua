@@ -2,6 +2,7 @@
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -23,6 +24,12 @@ local volumebar_widget = require("volume")
 -- Load Debian menu entries
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
+
+-- local switcher = require("awesome-switcher")
+
+local cyclefocus = require('cyclefocus')
+
+
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -257,7 +264,7 @@ awful.screen.connect_for_each_screen(function(s)
         
         { -- Right widge
         	
-spacing=10,
+			spacing=10,
             layout = wibox.layout.fixed.horizontal,
             -- mykeyboardlayout,
             -- wibox.widget.systray(),
@@ -333,25 +340,43 @@ globalkeys = gears.table.join(
     --     {description = "go back", group = "Window"}),
 
 
+-- modkey+Tab: cycle through all clients.
+awful.key({ modkey }, "Tab", function(c)
+    cyclefocus.cycle({modifier="Super_L"})
+end),
+-- modkey+Shift+Tab: backwards
+awful.key({ modkey, "Shift" }, "Tab", function(c)
+    cyclefocus.cycle({modifier="Super_L"})
+end),
 
-awful.key({ modkey,           }, "Tab",
-    function ()
-        -- awful.client.focus.history.previous()
-        awful.client.focus.byidx(-1)
-        if client.focus then
-            client.focus:raise()
-        end
-    end,{description = "tab", group = "Window navigation"}),
+-- awful.key({ modkey,           }, "Tab",
+--     function ()
+--         -- awful.client.focus.history.previous()
+--         awful.client.focus.byidx(-1)
+--         if client.focus then
+--             client.focus:raise()
+--         end
+--     end,{description = "tab", group = "Window navigation"}),
 
-awful.key({ modkey, "Shift"   }, "Tab",
-    function ()
-        -- awful.client.focus.history.previous()
-        awful.client.focus.byidx(1)
-        if client.focus then
-            client.focus:raise()
-        end
-    end,{description = "tab", group = "Window navigation"}),
+-- awful.key({ modkey, "Shift"   }, "Tab",
+--     function ()
+--         -- awful.client.focus.history.previous()
+--         awful.client.focus.byidx(1)
+--         if client.focus then
+--             client.focus:raise()
+--         end
+--     end,{description = "tab", group = "Window navigation"}),
 
+
+    -- awful.key({ modkey,           }, "Tab",
+    --   function ()
+    --       switcher.switch( 1, "Super_L", "Super_L", "Shift", "Tab")
+    --   end),
+    
+    -- awful.key({ modkey, "Shift"   }, "Tab",
+    --   function ()
+    --       switcher.switch(-1, "Super_L", "Super_L", "Shift", "Tab")
+    --   end),
 
     -- Standard program
     awful.key({ modkey,           }, "\\", function () awful.spawn("kitty ranger") end,
@@ -530,6 +555,24 @@ clientkeys = gears.table.join(
 
 
 
+    awful.key({ modkey, "Mod1" }, "Up",
+        function (c)
+            -- awful.placement.top(c)
+            c.height=c.screen.workarea.height/2
+            c.y=c.screen.workarea.y
+            c:raise()
+        end ,
+        {description = "Move to Left and resize ", group = "Window positioning"}),
+
+    awful.key({ modkey, "Mod1" }, "Down",
+        function (c)
+
+            c.height=c.screen.workarea.height/2+8*2
+            c.y=c.screen.workarea.height/2
+            c:raise()
+        end ,
+        {description = "Move to Left and resize ", group = "Window positioning"}),
+
 
 
     awful.key({ modkey, "Mod1" }, "Left",
@@ -649,15 +692,15 @@ for i = 1, 9 do
                   end,
                   {description = "view tag #"..i, group = "tag"}),
         -- Toggle tag display.
-        awful.key({ modkey, "Control" }, "#" .. i + 9,
-                  function ()
-                      local screen = awful.screen.focused()
-                      local tag = screen.tags[i]
-                      if tag then
-                         awful.tag.viewtoggle(tag)
-                      end
-                  end,
-                  {description = "toggle tag #" .. i, group = "tag"}),
+        -- awful.key({ modkey, "Control" }, "#" .. i + 9,
+        --           function ()
+        --               local screen = awful.screen.focused()
+        --               local tag = screen.tags[i]
+        --               if tag then
+        --                  awful.tag.viewtoggle(tag)
+        --               end
+        --           end,
+        --           {description = "toggle tag #" .. i, group = "tag"}),
         -- Move client to tag.
         awful.key({ modkey, "Shift" }, "#" .. i + 9,
                   function ()
@@ -668,18 +711,18 @@ for i = 1, 9 do
                           end
                      end
                   end,
-                  {description = "move focused client to tag #"..i, group = "tag"}),
+                  {description = "move focused client to tag #"..i, group = "tag"})
         -- Toggle tag on focused client.
-        awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
-                  function ()
-                      if client.focus then
-                          local tag = client.focus.screen.tags[i]
-                          if tag then
-                              client.focus:toggle_tag(tag)
-                          end
-                      end
-                  end,
-                  {description = "toggle focused client on tag #" .. i, group = "tag"})
+        -- awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
+        --           function ()
+        --               if client.focus then
+        --                   local tag = client.focus.screen.tags[i]
+        --                   if tag then
+        --                       client.focus:toggle_tag(tag)
+        --                   end
+        --               end
+        --           end,
+        --           {description = "toggle focused client on tag #" .. i, group = "tag"})
     )
 end
 
@@ -836,7 +879,6 @@ client.connect_signal("unfocus", function(c)
   c.border_width = 8
 end)
 -- }}}
-
 
 
 
