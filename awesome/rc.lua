@@ -300,22 +300,26 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
     awful.key({ modkey, "Mod1"          }, "Escape",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
+    -- awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
+    --           {description = "view previous", group = "tag"}),
+    -- awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
+    --           {description = "view next", group = "tag"}),
+
+    awful.key({ modkey,           }, "[",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
+    awful.key({ modkey,           }, "]",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
 
-
-    awful.key({ modkey,           }, "[",
-        function ()
-            awful.client.focus.byidx( 1)
-        end, {description = "focus next by index", group = "Window navigation"}
-    ),
-    awful.key({ modkey,           }, "]",
-        function ()
-            awful.client.focus.byidx(-1)
-        end, {description = "focus previous by index", group = "Window navigation"}
-    ),
+    -- awful.key({ modkey,           }, "[",
+    --     function ()
+    --         awful.client.focus.byidx( 1)
+    --     end, {description = "focus next by index", group = "Window navigation"}
+    -- ),
+    -- awful.key({ modkey,           }, "]",
+    --     function ()
+    --         awful.client.focus.byidx(-1)
+    --     end, {description = "focus previous by index", group = "Window navigation"}
+    -- ),
     -- awful.key({ modkey,           }, "r", function () mymainmenu:show() end,
               -- {description = "show main menu", group = "awesome"}),
 
@@ -946,3 +950,7 @@ beautiful.border_width = 0
 awful.util.spawn("compton  --backend glx --vsync opengl-swc ")
 awful.util.spawn("nitrogen --restore &")
 
+
+
+cyclefocus.display_next_count = 3
+cyclefocus.display_prev_count = 1

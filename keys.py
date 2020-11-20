@@ -33,6 +33,12 @@ define_keymap(None, {
     K("Super-y"): K("C-y"),
     K("Super-z"): K("C-z"),
 
+    K("Super-EQUAL"): K("C-EQUAL"),
+    K("Super-MINUS"): K("C-MINUS"),
+
+    K("Super-Left"): K("Home"),
+    K("Super-Right"): K("End"),
+
 
     K("Super-Shift-a"): K("C-Shift-a"),
     K("Super-Shift-b"): K("C-Shift-b"),
