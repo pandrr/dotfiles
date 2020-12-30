@@ -38,6 +38,10 @@ define_keymap(None, {
 
     K("Super-Left"): K("Home"),
     K("Super-Right"): K("End"),
+    K("Super-Shift-Left"): K("Shift-Home"),
+    K("Super-Shift-Right"): K("Shift-End"),
+
+    # K("Super-Enter"): K("C-Enter"),
 
 
     K("Super-Shift-a"): K("C-Shift-a"),

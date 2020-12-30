@@ -21,6 +21,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 
 local volumebar_widget = require("volume")
 
+
 -- Load Debian menu entries
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
@@ -535,8 +536,6 @@ clientkeys = gears.table.join(
         end ,
         {description = "unminimize all", group = "Window"}),
 
-
-
     -- awful.key({ modkey, "Control" }, "m",
     --     function (c)
     --         c.maximized_vertical = not c.maximized_vertical
@@ -645,10 +644,10 @@ clientkeys = gears.table.join(
     			c.xBeforeFullscreen=c.x
     			c.yBeforeFullscreen=c.y
 
-				c.width=c.screen.workarea.width-(8*2)
-				c.height=c.screen.workarea.height-(8*2)
-				c.x=c.screen.workarea.x
-				c.y=c.screen.workarea.y
+  				c.width=c.screen.workarea.width-(8*2)
+  				c.height=c.screen.workarea.height-(8*2)
+  				c.x=c.screen.workarea.x
+  				c.y=c.screen.workarea.y
     		end
 
             c:raise()
@@ -949,6 +948,8 @@ beautiful.border_width = 0
 
 awful.util.spawn("compton  --backend glx --vsync opengl-swc ")
 awful.util.spawn("nitrogen --restore &")
+
+awful.util.spawn("conky -c dotfiles/conkyrc")
 
 
 
