@@ -5,6 +5,11 @@ define_modmap({
     Key.CAPSLOCK: Key.LEFT_CTRL
 })
 
+define_keymap(re.compile("Xfce4-terminal|kitty"), {
+        K("Super-c"): K("Ctrl-Shift-c"),
+        K("Super-v"): K("Ctrl-Shift-v"),
+    })
+
 define_keymap(None, {
     K("Super-a"): K("C-a"),
     K("Super-b"): K("C-b"),
@@ -46,7 +51,7 @@ define_keymap(None, {
 
     K("Super-Shift-a"): K("C-Shift-a"),
     K("Super-Shift-b"): K("C-Shift-b"),
-    K("Super-Shift-c"): K("C-Shift-c"),
+    #K("Super-Shift-c"): K("C-Shift-c"),
     K("Super-Shift-d"): K("C-Shift-d"),
     K("Super-Shift-e"): K("C-Shift-e"),
     K("Super-Shift-f"): K("C-Shift-f"),
@@ -65,7 +70,7 @@ define_keymap(None, {
     K("Super-Shift-s"): K("C-Shift-s"),
     K("Super-Shift-t"): K("C-Shift-t"),
     K("Super-Shift-u"): K("C-Shift-u"),
-    K("Super-Shift-v"): K("C-Shift-v"),
+    #K("Super-Shift-v"): K("C-Shift-v"),
     K("Super-Shift-w"): K("C-Shift-w"),
     K("Super-Shift-x"): K("C-Shift-x"),
     K("Super-Shift-y"): K("C-Shift-y"),
