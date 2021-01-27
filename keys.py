@@ -1,6 +1,9 @@
 import re
 from xkeysnail.transform import *
 
+
+#etc/systemd/system/xkeysnail.service
+
 define_modmap({
     Key.CAPSLOCK: Key.LEFT_CTRL
 })
@@ -11,6 +14,10 @@ define_keymap(re.compile("Xfce4-terminal|kitty"), {
     })
 
 define_keymap(None, {
+
+    # K("Alt-o"): K("ö"),
+    # K("Alt-u"): K("u"),
+
     K("Super-a"): K("C-a"),
     K("Super-b"): K("C-b"),
     K("Super-c"): K("C-c"),
@@ -40,6 +47,7 @@ define_keymap(None, {
 
     K("Super-EQUAL"): K("C-EQUAL"),
     K("Super-MINUS"): K("C-MINUS"),
+    K("Super-SLASH"): K("C-SLASH"),
 
     K("Super-Left"): K("Home"),
     K("Super-Right"): K("End"),

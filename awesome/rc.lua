@@ -636,8 +636,8 @@ clientkeys = gears.table.join(
     		then
     			c.width=c.widthBeforeFullscreen
     			c.height=c.heightBeforeFullscreen
-    			c.x=c.xBeforeFullscreen
-    			c.y=c.yBeforeFullscreen
+    			c.x=c.xBeforeFullscreen or c.screen.workarea.x
+    			c.y=c.yBeforeFullscreen or c.screen.workarea.y
     		else
     			c.widthBeforeFullscreen=c.width
     			c.heightBeforeFullscreen=c.height
@@ -950,7 +950,7 @@ awful.util.spawn("compton  --backend glx --vsync opengl-swc ")
 awful.util.spawn("nitrogen --restore &")
 
 awful.util.spawn("conky -c dotfiles/conkyrc")
-
+awful.util.spawn("setxkbmap eurkey")
 
 
 cyclefocus.display_next_count = 3

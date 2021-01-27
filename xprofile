@@ -1,0 +1,15 @@
+xhost +SI:localuser:root
+
+# eurkeu
+setxkbmap eu
+
+# show all connected ports:
+# xrandr |awk '/connected/{print $1,$2}'
+
+xrandr -s 3840x1600 --rate 75
+
+#xrandr -s 1920x1080 --rate 75
+#xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60 --right-of DisplayPort-1
+
+ 
+
