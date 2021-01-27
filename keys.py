@@ -49,6 +49,11 @@ define_keymap(None, {
     K("Super-MINUS"): K("C-MINUS"),
     K("Super-SLASH"): K("C-SLASH"),
 
+    K("Alt-Shift-Left"): K("C-Shift-Left"),
+    K("Alt-Shift-Right"): K("C-Shift-Right"),
+    K("Alt-Left"): K("C-Left"),
+    K("Alt-Right"): K("C-Right"),
+
     K("Super-Left"): K("Home"),
     K("Super-Right"): K("End"),
     K("Super-Shift-Left"): K("Shift-Home"),
