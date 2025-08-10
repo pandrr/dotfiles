@@ -1,0 +1,101 @@
+# inherits = "catppuccin_mocha"
+
+"ui.background" ={bg= "g1"}
+"ui.text" = "g6"
+"ui.selection" = {bg="special",fg="g1"}
+
+"ui.linenr" = { fg = "g3" }
+"ui.linenr.selected" = { fg = "g8" }
+"ui.cursorline.primary" = { bg = "black" }
+
+"ui.virtual"="g3"
+
+"special"="g8"
+"ui.statusline" = { fg = "g6", bg = "g2" }
+# "ui.statusline.inactive" = { fg = "gray50", bg = "gray20" }
+"ui.statusline.normal" = { fg = "g1", bg = "c2", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "g1", bg = "c3", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "g1", bg = "c1", modifiers = ["bold"] }
+
+"tag"="g7"
+"comment" = { fg = "g4", modifiers = ["italic"] }
+# "comment.block" = {"fg" = "red", "modifiers" = ["italic"] }
+# "comment.block.documentation" = { fg = "red", modifiers = ["italic"] }
+# "comment.block.documentation" = { fg = "c3", modifiers = ["italic"] }
+"constructor"="c2"
+"keyword" = { fg = "g7", modifiers = ["italic"] }
+# "keyword.control" = { fg = "g6", modifiers = ["bold"] }
+# "keyword.control.conditional" = { fg = "g6", modifiers = ["bold"] }
+"keyword.control.repeat" = { fg = "c1", modifiers = ["bold"] }
+# "keyword.control.import" = { fg = "g6", modifiers = ["bold"] }
+"keyword.control.return" = { fg = "c1", modifiers = [""] }
+# "keyword.control.exception" = { fg = "red40", modifiers = ["bold"] }
+# "keyword.function" = "red"
+# "keyword.function" = { fg = "g6", modifiers = ["bold", "italic"] }
+# "keyword.storage" = { fg = "g6", modifiers = ["bold"] }
+#  "keyword.storage.modifier" = { fg = "red", modifiers = ["italic"] }
+
+"variable" = {fg="g8",modifiers=["bold"]}
+"variable.builtin" = { fg = "c1", modifiers = [""] }
+"variable.other.member" = "g7"
+
+# "variable.parameter" = { fg = "g7", modifiers = ["italic"] }
+# "variable.other.member" = { fg = "magenta30", modifiers = ["italic"] }
+
+# "label" = { fg = "blue", modifiers = ["italic"] }
+
+"punctuation" = "g4"
+"operator"="g5"
+# "punctuation.special" = "green"
+# "punctuation.bracket" = "g4"
+# "punctuation.delimiter" = "g7"
+
+
+"function" = { fg = "c2", modifiers = [""]}
+# "function.builtin" = { fg = "c2", modifiers = ["italic"] }
+# "function.method" = { fg = "red", modifiers = ["italic"] }
+ 
+"string" = {"fg"="c5","modifiers"=["bold"]}
+"constant" = {"fg"="c5","modifiers"=["italic"]}
+
+
+"error"={"fg"="error"}
+"hint"={"fg"="hint"}
+"info"={"fg"="hint"}
+"warning"={"fg"="warn"}
+"diagnostic.error"={"fg"="error",underline.style="line",underline.color="error"}
+"diagnostic.hint"={"fg"="hint",underline.style="line",underline.color="hint"}
+"diagnostic.info"={"fg"="hint",underline.style="line",underline.color="hint"}
+"diagnostic.warning"={"fg"="warn",underline.style="line",underline.color="warn"}
+
+
+"ui.highlight" = { bg = "g9", modifiers = ["bold"] }
+"ui.highlight.frameline" = { bg = "c2" }
+"ui.window"={"fg"="black","bg"="black"}
+"ui.popup"={"fg"="g3","bg"="black"}
+"ui.text.focus" = { fg = "special", bg = "black", modifiers = ["bold"] }
+"ui.text.directory" = { fg = "g2", bg = "", modifiers = [""] }
+
+
+[palette]
+g1 = "#111111"
+g2 = "#000000"
+g3 = "#555555"
+g4 = "#666666"
+g5 = "#888888"
+g6 = "#999999"
+g7 = "#bbbbbb"
+g8 = "#dddddd"
+# g8a = "#dddddd"
+g9 = "#eeeeee"
+c2 = "#789978"
+c1 = "#AAAA88"
+c3 = "#AA8877"
+c4 = "#AAAA77"
+c5 = "#77AAAA"
+# c5 = "#00BBBB"
+error="#AA7777"
+warn="#AAAA88"
+hint="#8888AA"
+special="#FFFF00"
+black="#000000"

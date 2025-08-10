@@ -1,0 +1,27 @@
+{
+  "div": {
+    "prefix": "div",
+    "body": "<div>\n</div>",
+    "description": "div"
+  },
+  "span": {
+    "prefix": "span",
+    "body": "<span>\n</span>",
+    "description": "span"
+  },
+  "h1": {
+    "prefix": "h1",
+    "body": "<h1></h1>",
+    "description": "h1"
+  },
+  "br": {
+    "prefix": "br",
+    "body": "<br/>",
+    "description": "br"
+  },
+  "class": {
+    "prefix": "class",
+    "body": "class=\"\"",
+    "description": "class"
+  }
+}

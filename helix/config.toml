@@ -1,0 +1,161 @@
+# theme = "nord"
+# theme = "catppuccin_mocha"
+theme = "catppuccin_frappe"
+# theme = "carbonfox"
+# theme = "tokyonight"
+# theme = "ayu_mirage"
+# theme = "tokyonight_moon"
+# theme = "monokai_pro_octagon"
+# theme= "starlight"
+# theime = "carbon"
+# theme="pandur"
+
+[keys.insert]
+"C-space" = "completion"
+up=["normal_mode","move_line_up"]
+down=["normal_mode","move_line_down"]
+right=["normal_mode","move_char_right"]
+left=["normal_mode","move_char_left"]
+C-o = ["normal_mode","jump_backward"]
+C-i = ["normal_mode","jump_forward"]
+C-ret = "insert_newline"
+C-p= "paste_after"
+C-c= "normal_mode"
+
+[keys.normal]
+c = "change_selection_noyank"
+X = "select_line_above"
+tab = "command_mode"
+esc = ["collapse_selection","keep_primary_selection"]
+# C-m= "@mim"
+# ret="@be"
+# duplicat ecurrent line
+S-right=["extend_to_line_bounds", "yank","paste_after"]
+# move current line up/down
+S-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+S-d = ["select_mode", "goto_line_end","delete_selection"]
+# C-s = ":w" # write file
+C-j = "@J<down>" 
+# C-e = "page_cursor_half_down"
+k="move_char_left"
+h="move_char_right"
+j="move_line_up"
+l="move_line_down"
+# C-l = "@F{<esc>"
+# C-y = "@f{<esc>"
+E = "@/[^A-Z](?=[A-Z])<ret>"
+ 
+# search for selected word and add cursor...
+A-s = ["save_selection", "select_mode","search_selection","extend_search_next"]
+
+ret = "expand_selection" 
+","="flip_selections"
+# "home"="@gs"
+C-ret = "insert_newline"
+# "?" = "@be*/"
+"?" = ["move_prev_word_start", "move_next_word_end", "search_selection", "search_next"]
+
+# home = "move_prev_word_start"
+# end= "move_next_word_start" 
+pageup="page_cursor_half_up"
+pagedown="page_cursor_half_down"
+# [keys.normal.m.n]
+#  "(" = "@s\\(<ret>nmi(" # inside next ()
+#  "[" = "@s\\[<ret>nmi[" 
+#  "\"" = "@s\\\"<ret>nmi\"" 
+
+[keys.normal.m.n]
+"\"" = "@f\";mim"
+"(" = "@f(;mim"
+"{" = "@f{;mim"
+"[" = "@f[;mim"
+
+[keys.select]
+A-s = ["extend_search_next"]
+
+[keys.normal."space"]
+o = "file_picker_in_current_buffer_directory"
+
+[keys.normal.g]
+"," = "goto_next_diag"
+"<" = "goto_prev_diag"
+"i" = "jump_forward"
+"o" = "jump_backward"
+
+[keys.normal."backspace"]
+c=":config-open"
+r=":config-reload"
+i = ":toggle lsp.display-inlay-hints"
+d = ":toggle inline-diagnostics.cursor-line disable hint"
+k=":qa!"
+w=":w"
+ret="file_explorer_in_current_buffer_directory"
+# o="file_explorer_in_current_buffer_directory"
+o = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+  ':set mouse false',
+  ':set mouse true'
+]
+
+backspace="file_picker"
+b = ":sh git -C $(dirname $(realpath %{buffer_name})) blame -L %{cursor_line},%{cursor_line} $(realpath %{buffer_name})"
+
+
+[editor.cursor-shape]
+insert = "bar"
+select = "block"
+normal= "underline"
+
+[editor]
+cursorline = true
+color-modes = true
+mouse=true
+line-number = "relative"
+jump-label-alphabet="nterisoagmufhdlp"
+gutters=["diagnostics","line-numbers","spacer","spacer"]
+# end-of-line-diagnostics = "hint"
+ 
+completion-timeout=5
+
+# [editor.inline-diagnostics]
+# cursor-line = "hint"
+# 
+# [editor.inline-diagnostics]
+# cursor-line = "hint"
+ # end-of-line-diagnostics = "hint"
+# [editor.inline-diagnostics]
+# cursor-line = "hint" # show warnings and errors on the cursorline inline
+
+[editor.file-picker]
+git-ignore=false
+ignore=true
+
+[editor.whitespace.render]
+tab = "none"
+nbsp = "none"
+nnbsp = "none"
+newline = "all"
+
+[editor.whitespace.characters]
+newline = "⌞" #"·"
+
+[editor.statusline]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+left = ["mode","file-name", "read-only-indicator" ]
+center = ["file-modification-indicator"]
+right=[ "position","spacer","diagnostics","selections","position-percentage","spinner","spacer"]
+
+[editor.indent-guides]
+render = true
+skip-levels=1
+
+
+
+

@@ -1,0 +1,34 @@
+[language-server.snippets-ls-js]
+command = "snippets-ls"
+args = ["-config", "/Users/tom/.config/helix/snippets.js.json"]
+
+[language-server.snippets-ls-html]
+command = "snippets-ls"
+args = ["-config", "/Users/tom/.config/helix/snippets.html.json"]
+
+[[language]]
+name = "javascript"
+language-servers = [  "typescript-language-server", "snippets-ls-js" ]
+auto-format =true 
+formatter = { command = "eslint.sh", args = [] }
+
+[[language]]
+name = "html"
+formatter = { command = 'npx', args = ["prettier", "--parser", "html"] }
+language-servers = [ "vscode-html-language-server","snippets-ls-html"]
+indent = { tab-width = 4, unit = "\t" }
+auto-format = false
+
+[[language]]
+name = "markdown"
+language-servers = [ "marksman"]
+
+[[language]]
+name = "scss"
+auto-format=false
+
+[[language]]
+name = "css"
+auto-format=true
+indent = { tab-width = 4, unit = "    " }
+
