@@ -45,7 +45,7 @@ function y() {
 
 setopt PROMPT_SUBST
 
-PROMPT='%F{#FFFFFF}%K{#8888AA} horst6 %k%F{#888888} %5/%F{cyan}$(git_branch) %F{yellow}›%f%k'
+PROMPT='%F{#FFFFFF}%K{#8888AA} $(hostname) %k%F{#888888} %5/%F{cyan}$(git_branch) %F{yellow}›%f%k'
 #alias python=/opt/homebrew/bin/python3
 
 #export VBCC=~/dev/vbcc
