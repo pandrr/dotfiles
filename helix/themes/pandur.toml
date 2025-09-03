@@ -2,12 +2,15 @@
 
 "ui.background" ={bg= "g1"}
 "ui.text" = "g6"
-"ui.selection" = {bg="special",fg="g1"}
+"ui.selection" = {bg="selection",fg="g1"}
+"ui.cursor" = {bg="cursor",fg="g1"}
+"ui.cursor.select" = {bg="cursor",fg="g1"}
+"ui.cursor.match" = {bg="#555555",fg="#ffff00"}
 
 "ui.linenr" = { fg = "g3" }
 "ui.linenr.selected" = { fg = "g8" }
 "ui.cursorline.primary" = { bg = "black" }
-
+"ui.virtual.jump-label"={fg="#ffff00"}
 "ui.virtual"="g3"
 
 "special"="g8"
@@ -23,7 +26,7 @@
 # "comment.block.documentation" = { fg = "red", modifiers = ["italic"] }
 # "comment.block.documentation" = { fg = "c3", modifiers = ["italic"] }
 "constructor"="c2"
-"keyword" = { fg = "g7", modifiers = ["italic"] }
+"keyword" = { fg = "c1", modifiers = ["italic"] }
 # "keyword.control" = { fg = "g6", modifiers = ["bold"] }
 # "keyword.control.conditional" = { fg = "g6", modifiers = ["bold"] }
 "keyword.control.repeat" = { fg = "c1", modifiers = ["bold"] }
@@ -75,27 +78,29 @@
 "ui.popup"={"fg"="g3","bg"="black"}
 "ui.text.focus" = { fg = "special", bg = "black", modifiers = ["bold"] }
 "ui.text.directory" = { fg = "g2", bg = "", modifiers = [""] }
+"ui.menu.selected"={fg="yellow",bg="g3"}
 
 
 [palette]
-g1 = "#111111"
+g1 = "#171717"
 g2 = "#000000"
 g3 = "#555555"
 g4 = "#666666"
 g5 = "#888888"
 g6 = "#999999"
-g7 = "#bbbbbb"
-g8 = "#dddddd"
-# g8a = "#dddddd"
+g7 = "#999999"
+g8 = "#bbbbbb"
 g9 = "#eeeeee"
-c2 = "#789978"
+
 c1 = "#AAAA88"
+c2 = "#789978"
 c3 = "#AA8877"
 c4 = "#AAAA77"
-c5 = "#77AAAA"
-# c5 = "#00BBBB"
+c5 = "#55AAAA" #strings
+
 error="#AA7777"
 warn="#AAAA88"
 hint="#8888AA"
-special="#FFFF00"
+selection="#aaaa00"
+cursor="#FFFF00"
 black="#000000"
