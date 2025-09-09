@@ -12,6 +12,7 @@
 "ui.cursorline.primary" = { bg = "black" }
 "ui.virtual.jump-label"={fg="#ffff00"}
 "ui.virtual"="g3"
+"ui.virtual.indent-guide"={fg="#212121"}
 
 "special"="g8"
 "ui.statusline" = { fg = "g6", bg = "g2" }

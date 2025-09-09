@@ -38,10 +38,10 @@ S-d = ["select_mode", "goto_line_end","delete_selection"]
 # C-s = ":w" # write file
 C-j = "@J<down>" 
 # C-e = "page_cursor_half_down"
-k="move_char_left"
+# k="move_char_left"
 h="goto_word"
-j="move_line_up"
-l="move_line_down"
+# j="move_line_up"
+# l="move_line_down"
 # C-l = "@F{<esc>"
 # C-y = "@f{<esc>"
 E = "@/[^A-Z](?=[A-Z])<ret>"
@@ -83,7 +83,7 @@ o = "file_picker_in_current_buffer_directory"
 "i" = "jump_forward"
 "o" = "jump_backward"
 
-[keys.normal."backspace"]
+[keys.normal.k]
 c=":config-open"
 r=":config-reload"
 i = ":toggle lsp.display-inlay-hints"
