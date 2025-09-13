@@ -34,7 +34,9 @@ S-right=["extend_to_line_bounds", "yank","paste_after"]
 # move current line up/down
 S-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
-S-d = ["select_mode", "goto_line_end","delete_selection"]
+C-k = ["select_mode", "goto_line_end","delete_selection"]
+S-d="delete_char_backward"
+C-w="delete_word_backward"
 # C-s = ":w" # write file
 C-j = "@J<down>" 
 # C-e = "page_cursor_half_down"
@@ -88,7 +90,7 @@ c=":config-open"
 r=":config-reload"
 i = ":toggle lsp.display-inlay-hints"
 d = ":toggle inline-diagnostics.cursor-line disable hint"
-k=":qa!"
+q=":qa!"
 w=":w"
 ret="file_explorer_in_current_buffer_directory"
 # o="file_explorer_in_current_buffer_directory"
@@ -102,7 +104,7 @@ o = [
   ':set mouse true'
 ]
 
-backspace="file_picker"
+k="file_picker"
 b = ":sh git -C $(dirname $(realpath %{buffer_name})) blame -L %{cursor_line},%{cursor_line} $(realpath %{buffer_name})"
 
 
