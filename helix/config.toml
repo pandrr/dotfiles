@@ -47,11 +47,17 @@ h="goto_word"
 # C-l = "@F{<esc>"
 # C-y = "@f{<esc>"
 E = "@/[^A-Z](?=[A-Z])<ret>"
+j = ["move_prev_sub_word_start"]
+l = ["move_next_sub_word_end"]
+L= "expand_selection" 
+'A-w' = ["move_next_sub_word_start"]
+'A-e' = ["move_next_sub_word_end"]
+'A-b' = ["move_prev_sub_word_start"] 
+
  
 # search for selected word and add cursor...
 A-s = ["save_selection", "select_mode","search_selection","extend_search_next"]
 
-ret = "expand_selection" 
 ","="flip_selections"
 # "home"="@gs"
 C-ret = "insert_newline"

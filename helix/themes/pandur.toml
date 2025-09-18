@@ -12,18 +12,18 @@
 "ui.cursorline.primary" = { bg = "black" }
 "ui.virtual.jump-label"={fg="#ffff00"}
 "ui.virtual"="g3"
-"ui.virtual.indent-guide"={fg="#212121"}
+"ui.virtual.indent-guide"={fg="#444444"}
 
 "special"="g8"
 "ui.statusline" = { fg = "g6", bg = "g2" }
 # "ui.statusline.inactive" = { fg = "gray50", bg = "gray20" }
-"ui.statusline.normal" = { fg = "g1", bg = "c2", modifiers = ["bold"] }
-"ui.statusline.insert" = { fg = "g1", bg = "c3", modifiers = ["bold"] }
+"ui.statusline.normal" = { fg = "g1", bg = "c3", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "g1", bg = "c2", modifiers = ["bold"] }
 "ui.statusline.select" = { fg = "g1", bg = "c1", modifiers = ["bold"] }
 
 "tag"="g7"
 "comment" = { fg = "g4", modifiers = ["italic"] }
-# "comment.block" = {"fg" = "red", "modifiers" = ["italic"] }
+ # "comment.block" = {"fg" = "red", "modifiers" = ["italic"] }
 # "comment.block.documentation" = { fg = "red", modifiers = ["italic"] }
 # "comment.block.documentation" = { fg = "c3", modifiers = ["italic"] }
 "constructor"="c2"
@@ -83,21 +83,21 @@
 
 
 [palette]
-g1 = "#171717"
+g1 = "#202020"
 g2 = "#000000"
 g3 = "#555555"
-g4 = "#666666"
+g4 = "#696969"
 g5 = "#888888"
 g6 = "#999999"
 g7 = "#999999"
 g8 = "#bbbbbb"
 g9 = "#eeeeee"
 
-c1 = "#AAAA88"
-c2 = "#789978"
-c3 = "#AA8877"
-c4 = "#AAAA77"
-c5 = "#55AAAA" #strings
+c1 = "#55ccdd"
+c2 = "#55ccee"
+c3 = "#008877"
+c4 = "#880077"
+c5 = "#88ccAA" #strings
 
 error="#AA7777"
 warn="#AAAA88"
