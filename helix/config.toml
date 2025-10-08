@@ -2,12 +2,12 @@
 # theme = "catppuccin_mocha"
 # theme = "catppuccin_frappe"
 # theme = "carbonfox"
-# theme = "tokyonight"
+ # theme = "tokyonight"
 # theme = "ayu_mirage"
-# theme = "tokyonight_moon"
+ # theme = "tokyonight_moon"
 # theme = "monokai_pro_octagon"
 # theme= "starlight"
-# theime = "carbon"
+#theme = "carbon"
 theme="pandur"
 
 [keys.insert]
@@ -42,7 +42,7 @@ C-j = "@J<down>"
 # k = "rotate_view" 
 # C-e = "page_cursor_half_down"
 # k="move_char_left"
-# h="goto_word"
+ret="goto_word"
 # j="move_line_up"
 # l="move_line_down"
 # C-l = "@F{<esc>"
@@ -54,6 +54,7 @@ L= "expand_selection"
 'A-w' = ["move_next_sub_word_start"]
 'A-e' = ["move_next_sub_word_end"]
 'A-b' = ["move_prev_sub_word_start"] 
+V="@vgl<esc>"
 
 # search for selected word and add cursor...
 A-s = ["save_selection", "select_mode","search_selection","extend_search_next"]
@@ -82,6 +83,7 @@ d = "goto_next_diag"
 e = "goto_next_entry"
 g = "goto_next_change"
 w = "rotate_view" 
+h = "repeat_last_motion" 
 
 [keys.normal.k]
 f = "goto_prev_function"
@@ -92,6 +94,7 @@ d = "goto_prev_diag"
 e = "goto_prev_entry"
 g = "goto_prev_change"
 w = "rotate_view" 
+k = "repeat_last_motion" 
  
 [keys.normal.m.n]
 "\"" = "@f\";mim"
@@ -183,7 +186,7 @@ mode.insert = "INSERT"
 mode.select = "SELECT"
 left = ["mode","file-name", "read-only-indicator" ]
 center = ["file-modification-indicator"]
-right=[ "position","spacer","diagnostics","selections","position-percentage","spacer"]
+right=[ "position","spacer","diagnostics","selections","position-percentage", "spacer"]
 
 [editor.indent-guides]
 render = true
@@ -191,4 +194,30 @@ skip-levels=1
 
 
 
+
+# [editor.cmdline]
+# style = "popup"
+# use-full-height = false
+# show-icons = false
+
+# [editor.notifications.emojis]
+# info = ""
+# warning = ""
+# error = ""
+# success = ""
+
+# [editor.notifications]
+# enable = true
+# style = "popup"
+# position = "top-right"
+# default-timeout = 1000 # Set to 3 seconds if that's what you intended
+# padding = 1
+
+# [editor.notifications.shadow]
+# enable = false 
+# offset-x = 0
+# offset-y = 0
+
+# [editor.notifications.border]
+# enable=false
 

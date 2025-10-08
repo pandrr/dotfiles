@@ -8,38 +8,38 @@
 "ui.cursor.match" = {bg="#555555",fg="#ffff00"}
 
 "ui.linenr" = { fg = "g3" }
-"ui.linenr.selected" = { fg = "g8" }
+"ui.linenr.selected" = { fg = "g9" }
 "ui.cursorline.primary" = { bg = "black" }
 "ui.virtual.jump-label"={fg="#ffff00"}
 "ui.virtual"="g3"
 "ui.virtual.indent-guide"={fg="#444444"}
 
-"special"="g8"
 "ui.statusline" = { fg = "g6", bg = "g2" }
 # "ui.statusline.inactive" = { fg = "gray50", bg = "gray20" }
 "ui.statusline.normal" = { fg = "g1", bg = "c3", modifiers = ["bold"] }
 "ui.statusline.insert" = { fg = "g1", bg = "c2", modifiers = ["bold"] }
-"ui.statusline.select" = { fg = "g1", bg = "c1", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "g1", bg = "g5", modifiers = ["bold"] }
 
 "tag"="g7"
 "comment" = { fg = "g4", modifiers = ["italic"] }
- # "comment.block" = {"fg" = "red", "modifiers" = ["italic"] }
-# "comment.block.documentation" = { fg = "red", modifiers = ["italic"] }
+"comment.block" = {"fg" = "red", "modifiers" = ["italic"] }
+# "comment.block.documentation" = { fg = "#ff0000", modifiers = ["italic"] }
 # "comment.block.documentation" = { fg = "c3", modifiers = ["italic"] }
+
 "constructor"="c2"
-"keyword" = { fg = "c1", modifiers = ["italic"] }
+"keyword" = { fg = "g7", modifiers = ["italic"] }
 # "keyword.control" = { fg = "g6", modifiers = ["bold"] }
 # "keyword.control.conditional" = { fg = "g6", modifiers = ["bold"] }
-"keyword.control.repeat" = { fg = "c1", modifiers = ["bold"] }
+"keyword.control.repeat" = { fg = "g7", modifiers = ["italic"] }
 # "keyword.control.import" = { fg = "g6", modifiers = ["bold"] }
-"keyword.control.return" = { fg = "c1", modifiers = [""] }
+"keyword.control.return" = { fg = "g7", modifiers = ["italic"] }
 # "keyword.control.exception" = { fg = "red40", modifiers = ["bold"] }
 # "keyword.function" = "red"
 # "keyword.function" = { fg = "g6", modifiers = ["bold", "italic"] }
 # "keyword.storage" = { fg = "g6", modifiers = ["bold"] }
 #  "keyword.storage.modifier" = { fg = "red", modifiers = ["italic"] }
 
-"variable" = {fg="g8",modifiers=["bold"]}
+"variable" = {fg="g9",modifiers=["bold"]}
 "variable.builtin" = { fg = "c1", modifiers = [""] }
 "variable.other.member" = "g7"
 
@@ -50,34 +50,35 @@
 
 "punctuation" = "g4"
 "operator"="g5"
-# "punctuation.special" = "green"
-# "punctuation.bracket" = "g4"
-# "punctuation.delimiter" = "g7"
+# "punctuation.special" = "#ff0000"
+"punctuation.bracket" = "#55aabb"
+# "punctuation.delimiter" = "#777777"
 
 
 "function" = { fg = "c2", modifiers = [""]}
 # "function.builtin" = { fg = "c2", modifiers = ["italic"] }
 # "function.method" = { fg = "red", modifiers = ["italic"] }
  
-"string" = {"fg"="c5","modifiers"=["bold"]}
-"constant" = {"fg"="c5","modifiers"=["italic"]}
-
+"string" = {"fg"="c5"}
+"constant" = {"fg"="c6","modifiers"=["italic"]}
+"constant.numeric" = {"fg"="c6","modifiers"=["italic"]}
 
 "error"={"fg"="error"}
 "hint"={"fg"="hint"}
 "info"={"fg"="hint"}
 "warning"={"fg"="warn"}
+
 "diagnostic.error"={"fg"="error",underline.style="line",underline.color="error"}
 "diagnostic.hint"={"fg"="hint",underline.style="line",underline.color="hint"}
 "diagnostic.info"={"fg"="hint",underline.style="line",underline.color="hint"}
 "diagnostic.warning"={"fg"="warn",underline.style="line",underline.color="warn"}
 
 
-"ui.highlight" = { bg = "g9", modifiers = ["bold"] }
+"ui.highlight" = { fg = "#00ddaa", bg = "linehl"}
 "ui.highlight.frameline" = { bg = "c2" }
 "ui.window"={"fg"="black","bg"="black"}
 "ui.popup"={"fg"="g3","bg"="black"}
-"ui.text.focus" = { fg = "special", bg = "black", modifiers = ["bold"] }
+"ui.text.focus" = { fg = "#00ddaa", bg = "linehl" }
 "ui.text.directory" = { fg = "g2", bg = "", modifiers = [""] }
 "ui.menu.selected"={fg="yellow",bg="g3"}
 
@@ -89,19 +90,21 @@ g3 = "#555555"
 g4 = "#696969"
 g5 = "#888888"
 g6 = "#999999"
-g7 = "#999999"
-g8 = "#bbbbbb"
-g9 = "#eeeeee"
+g7 = "#aaaaaa"
+g8 = "#cccccc"
+g9 = "#dddddd"
 
-c1 = "#55ccdd"
-c2 = "#55ccee"
+c1 = "#787878"
+c2 = "#eeeeee"
 c3 = "#008877"
 c4 = "#880077"
-c5 = "#88ccAA" #strings
+c5 = "#77ccaa" #strings
+c6 = "#22ccdd" 
 
 error="#AA7777"
 warn="#AAAA88"
-hint="#8888AA"
-selection="#aaaa00"
-cursor="#FFFF00"
+hint="#4488AA"
+selection="#bbbbbb"
+cursor="#ffff00"
 black="#000000"
+linehl="#004433"
