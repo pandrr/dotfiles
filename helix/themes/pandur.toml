@@ -1,32 +1,44 @@
 # inherits = "catppuccin_mocha"
 
-"ui.background" ={bg= "g1"}
 "ui.text" = "g6"
+"ui.background" ={bg= "g1"}
 "ui.selection" = {bg="selection",fg="g1"}
-"ui.cursor" = {bg="cursor",fg="g1"}
+"ui.cursor" = {bg="yellow",fg="g1"}
 "ui.cursor.select" = {bg="cursor",fg="g1"}
-"ui.cursor.match" = {bg="#555555",fg="#ffff00"}
+"ui.cursor.match" = {bg="#555555",fg="yellow"}
 
 "ui.linenr" = { fg = "g3" }
 "ui.linenr.selected" = { fg = "g9" }
-"ui.cursorline.primary" = { bg = "black" }
-"ui.virtual.jump-label"={fg="#ffff00"}
+"ui.cursorline.primary" = { bg = "linehl" }
+"ui.virtual.jump-label"={fg="yellow"}
 "ui.virtual"="g3"
 "ui.virtual.indent-guide"={fg="#444444"}
 
+"ui.highlight" = { fg = "#0000ff", bg = "linehl"}
+"ui.highlight.frameline" = { fg = "c2" }
+"ui.window"={"fg"="winbg","bg"="winbg"}
+"ui.popup"={"fg"="g3","bg"="winbg"}
+"ui.text.focus" = { fg = "c5", bg = "linehl" }
+"ui.text.directory" = { fg = "g2", bg = "", modifiers = [""] }
+"ui.menu.selected"={fg="yellow",bg="g3"}
+
 "ui.statusline" = { fg = "g6", bg = "g2" }
-# "ui.statusline.inactive" = { fg = "gray50", bg = "gray20" }
-"ui.statusline.normal" = { fg = "g1", bg = "c3", modifiers = ["bold"] }
-"ui.statusline.insert" = { fg = "g1", bg = "c2", modifiers = ["bold"] }
-"ui.statusline.select" = { fg = "g1", bg = "g5", modifiers = ["bold"] }
+"ui.text.info"={fg="g6"}
+"ui.popup.info"={fg="g3"}
+"ui.statusline.inactive" = { fg = "g3", bg = "g1" }
+"ui.statusline.normal" = { fg = "g1", bg = "g3", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "g1", bg = "warn", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "g1", bg = "selection", modifiers = ["bold"] }
+
 
 "tag"="g7"
 "comment" = { fg = "g4", modifiers = ["italic"] }
-"comment.block" = {"fg" = "red", "modifiers" = ["italic"] }
+# "comment.block" = {"fg" = "#00ff00", "modifiers" = ["italic"] }
+# "comment.line" = {"fg" = "#0000ff", "modifiers" = ["italic"] }
 # "comment.block.documentation" = { fg = "#ff0000", modifiers = ["italic"] }
 # "comment.block.documentation" = { fg = "c3", modifiers = ["italic"] }
 
-"constructor"="c2"
+"constructor"="g9"
 "keyword" = { fg = "g7", modifiers = ["italic"] }
 # "keyword.control" = { fg = "g6", modifiers = ["bold"] }
 # "keyword.control.conditional" = { fg = "g6", modifiers = ["bold"] }
@@ -51,7 +63,7 @@
 "punctuation" = "g4"
 "operator"="g5"
 # "punctuation.special" = "#ff0000"
-"punctuation.bracket" = "#55aabb"
+"punctuation.bracket" = "c4"
 # "punctuation.delimiter" = "#777777"
 
 
@@ -74,37 +86,36 @@
 "diagnostic.warning"={"fg"="warn",underline.style="line",underline.color="warn"}
 
 
-"ui.highlight" = { fg = "#00ddaa", bg = "linehl"}
-"ui.highlight.frameline" = { bg = "c2" }
-"ui.window"={"fg"="black","bg"="black"}
-"ui.popup"={"fg"="g3","bg"="black"}
-"ui.text.focus" = { fg = "#00ddaa", bg = "linehl" }
-"ui.text.directory" = { fg = "g2", bg = "", modifiers = [""] }
-"ui.menu.selected"={fg="yellow",bg="g3"}
-
 
 [palette]
 g1 = "#202020"
 g2 = "#000000"
 g3 = "#555555"
 g4 = "#696969"
+c1 = "#787878"
 g5 = "#888888"
 g6 = "#999999"
 g7 = "#aaaaaa"
 g8 = "#cccccc"
 g9 = "#dddddd"
-
-c1 = "#787878"
 c2 = "#eeeeee"
-c3 = "#008877"
-c4 = "#880077"
-c5 = "#77ccaa" #strings
-c6 = "#22ccdd" 
+
+# c4 = "#55aabb" #brackets
+# c5 = "#77ccaa" #strings
+# c6 = "#22ccdd" #numbers
+ 
+c4 = "#aa77cc" #brackets
+c5 = "#55C5E4" #strings
+c6 = "#84DDEA" #numbers
+ 
+# c4 = "#bbaa55" #brackets
+# c5 = "#aacc77" #strings
+# c6 = "#ddcc22" #numbers
 
 error="#AA7777"
 warn="#AAAA88"
 hint="#4488AA"
 selection="#bbbbbb"
-cursor="#ffff00"
-black="#000000"
-linehl="#004433"
+yellow="#ffff00"
+winbg="#000000"
+linehl="#000000"
