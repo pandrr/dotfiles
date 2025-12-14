@@ -31,4 +31,3 @@ auto-format=false
 name = "css"
 auto-format=true
 indent = { tab-width = 4, unit = "    " }
-

@@ -26,7 +26,7 @@ C-c= "normal_mode"
 c = "change_selection_noyank"
 X = "select_line_above"
 tab = "command_mode"
-esc = ["collapse_selection","keep_primary_selection"]
+esc = ["save_selection","collapse_selection","keep_primary_selection"]
 # C-m= "@mim"
 # ret="@be"
  
@@ -120,7 +120,7 @@ space="symbol_picker"
 
 [keys.normal.backspace]
 c=":config-open"
-r=":config-reload"
+r=[":config-reload",":reload-all"]
 i = ":toggle lsp.display-inlay-hints"
 d = ":toggle inline-diagnostics.cursor-line disable hint"
 q=":qa!"
@@ -143,15 +143,18 @@ b = ":sh git -C $(dirname $(realpath %{buffer_name})) blame -L %{cursor_line},%{
 [editor.cursor-shape]
 insert = "bar"
 select = "block"
-normal= "underline"
+normal= "block"
 
 [editor]
+# rainbow-brackets = true
 cursorline = true
 color-modes = true
 mouse=true
 line-number = "relative"
 jump-label-alphabet="nterisoagmufhdlp"
 gutters=["diff","diagnostics","line-numbers","spacer","spacer"]
+default-yank-register="+"
+
 # end-of-line-diagnostics = "hint"
  
 completion-timeout=5

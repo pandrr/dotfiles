@@ -2,10 +2,10 @@
 
 "ui.text" = "g6"
 "ui.background" ={bg= "g1"}
-"ui.selection" = {bg="selection",fg="g1"}
+"ui.selection" = {bg="g3",fg="yellow"}
 "ui.cursor" = {bg="yellow",fg="g1"}
-"ui.cursor.select" = {bg="cursor",fg="g1"}
-"ui.cursor.match" = {bg="#555555",fg="yellow"}
+"ui.cursor.select" = {bg="yellow",fg="g1"}
+"ui.cursor.match" = {bg="#000000",fg="yellow"}
 
 "ui.linenr" = { fg = "g3" }
 "ui.linenr.selected" = { fg = "g9" }
@@ -27,7 +27,7 @@
 "ui.popup.info"={fg="g3"}
 "ui.statusline.inactive" = { fg = "g3", bg = "g1" }
 "ui.statusline.normal" = { fg = "g1", bg = "g3", modifiers = ["bold"] }
-"ui.statusline.insert" = { fg = "g1", bg = "warn", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "g1", bg = "c6", modifiers = ["bold"] }
 "ui.statusline.select" = { fg = "g1", bg = "selection", modifiers = ["bold"] }
 
 
@@ -86,6 +86,7 @@
 "diagnostic.warning"={"fg"="warn",underline.style="line",underline.color="warn"}
 
 
+"rainbow" = ["#ff000","#00ff00","#0000ff"]
 
 [palette]
 g1 = "#202020"
@@ -96,9 +97,9 @@ c1 = "#787878"
 g5 = "#888888"
 g6 = "#999999"
 g7 = "#aaaaaa"
-g8 = "#cccccc"
-g9 = "#dddddd"
-c2 = "#eeeeee"
+g8 = "#bbbbbb"
+g9 = "#cccccc"
+c2 = "#dddddd"
 
 # c4 = "#55aabb" #brackets
 # c5 = "#77ccaa" #strings
@@ -115,7 +116,8 @@ c6 = "#84DDEA" #numbers
 error="#AA7777"
 warn="#AAAA88"
 hint="#4488AA"
-selection="#bbbbbb"
+selection="#992288"
 yellow="#ffff00"
 winbg="#000000"
 linehl="#000000"
+

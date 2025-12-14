@@ -6,19 +6,19 @@
   },
   "abs": {
     "prefix": "abs",
-    "body": "Math.abs(\"${1:1}\")"
+    "body": "Math.abs(${1:1})"
   },
   "floor": {
     "prefix": "floor",
-    "body": "Math.floor(\"${1:1}\")"
+    "body": "Math.floor(${1:1})"
   },
   "ceil": {
     "prefix": "ceil",
-    "body": "Math.ceil(\"${1:1}\")"
+    "body": "Math.ceil(${1:1})"
   },
-  "floor": {
-    "prefix": "floor",
-    "body": "Math.floor(\"${1:1}\")"
+  "func": {
+    "prefix": "func",
+    "body": "()=>\n{${1:1}\n}\n"
   },
   "for": {
     "prefix": "for",
