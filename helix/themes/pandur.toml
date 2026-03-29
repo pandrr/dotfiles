@@ -31,7 +31,7 @@
 "ui.statusline.select" = { fg = "g1", bg = "selection", modifiers = ["bold"] }
 
 
-"tag"="g7"
+"tag"="g9"
 "comment" = { fg = "g4", modifiers = ["italic"] }
 # "comment.block" = {"fg" = "#00ff00", "modifiers" = ["italic"] }
 # "comment.line" = {"fg" = "#0000ff", "modifiers" = ["italic"] }
@@ -84,6 +84,12 @@
 "diagnostic.hint"={"fg"="hint",underline.style="line",underline.color="hint"}
 "diagnostic.info"={"fg"="hint",underline.style="line",underline.color="hint"}
 "diagnostic.warning"={"fg"="warn",underline.style="line",underline.color="warn"}
+
+"markup.heading"="c6"
+"markup.bold"="c2"
+"markup.italic"="c2"
+"markup.list"="c6"
+"markup.link"="c4"
 
 
 "rainbow" = ["#ff000","#00ff00","#0000ff"]

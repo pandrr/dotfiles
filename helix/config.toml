@@ -30,6 +30,9 @@ esc = ["save_selection","collapse_selection","keep_primary_selection"]
 # C-m= "@mim"
 # ret="@be"
  
+"(" = ["goto_prev_paragraph","collapse_selection"]
+")" = ["goto_next_paragraph","collapse_selection"]
+
 # move current line up/down
 S-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
 S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
@@ -43,11 +46,14 @@ S-d="delete_char_backward"
 # C-e = "page_cursor_half_down"
 # k="move_char_left"
 # 
-ret="goto_word"
+# ret="goto_word"
+ret = "select_line_below"
+S-ret = "select_line_above"
 # j="move_line_up"
 # l="move_line_down"
 # C-l = "@F{<esc>"
 # C-y = "@f{<esc>"
+# L = ["select_line_above"]
 j = ["move_prev_sub_word_start"]
 l = ["move_next_sub_word_end"]
 h= "expand_selection" 
@@ -76,23 +82,27 @@ pagedown="page_cursor_half_down"
 
 [keys.normal.k]
 f = "goto_next_function"
-c = "goto_next_comment"
-p = "goto_next_paragraph"
-a = "goto_next_parameter"
-d = "goto_next_diag"
-e = "goto_next_entry"
-g = "goto_next_change"
-w = "rotate_view" 
-h = "repeat_last_motion" 
+# c = "goto_next_comment"
+# p = "goto_next_paragraph"
+# a = "goto_next_parameter"
+# d = "goto_next_diag"
+# e = "goto_next_entry"
+# g = "goto_next_change"
+# w = "rotate_view" 
+# h = "repeat_last_motion" 
 F = "goto_prev_function"
-C = "goto_prev_comment"
-P = "goto_prev_paragraph"
-A = "goto_prev_parameter"
-D = "goto_prev_diag"
-E = "goto_prev_entry"
-G = "goto_prev_change"
-W = "rotate_view" 
-K = "repeat_last_motion" 
+# C = "goto_prev_comment"
+# P = "goto_prev_paragraph"
+# A = "goto_prev_parameter"
+# D = "goto_prev_diag"
+# E = "goto_prev_entry"
+# G = "goto_prev_change"
+# W = "rotate_view" 
+k = "repeat_last_motion" 
+b = "@f(;"
+p = "@F(;"
+g = "@f{;"
+t = "@F{;"
  
 [keys.normal.m.n]
  "\"" = "@f\";mim"
@@ -185,9 +195,9 @@ newline = "⌞" #"·"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
-left = ["mode","file-name", "read-only-indicator" ]
-center = ["file-modification-indicator"]
-right=[ "position","spacer","diagnostics","selections","position-percentage", "spacer"]
+left = ["mode","file-base-name" ] 
+center = ["file-modification-indicator","read-only-indicator"]
+right=[ "position","spacer","diagnostics","primary-selection-length","position-percentage", "spacer"]
 
 [editor.indent-guides]
 render = true
