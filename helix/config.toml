@@ -18,9 +18,9 @@ right=["normal_mode","move_char_right"]
 left=["normal_mode","move_char_left"]
 C-o = ["normal_mode","jump_backward"]
 C-i = ["normal_mode","jump_forward"]
-C-ret = "insert_newline"
-C-p= "paste_after"
-C-c= "normal_mode"
+# C-ret = "insert_newline"
+# C-p= "paste_after"
+# C-c= "normal_mode"
 
 [keys.normal]
 c = "change_selection_noyank"
@@ -30,8 +30,8 @@ esc = ["save_selection","collapse_selection","keep_primary_selection"]
 # C-m= "@mim"
 # ret="@be"
  
-"(" = ["goto_prev_paragraph","collapse_selection"]
-")" = ["goto_next_paragraph","collapse_selection"]
+"(" = ["select_prev_sibling","collapse_selection"]
+")" = ["select_next_sibling","collapse_selection"]
 
 # move current line up/down
 S-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
@@ -81,28 +81,32 @@ pagedown="page_cursor_half_down"
 #  "\"" = "@s\\\"<ret>nmi\"" 
 
 [keys.normal.k]
+p = ["goto_next_paragraph","collapse_selection","flip_selections","move_line_down"]
 f = "goto_next_function"
+b = "@f(;"
+c = "@f{;"
+s = "@f\";"
+d = "@x\"ay\"ap"
+
+[keys.normal.K]
+f = "goto_prev_function"
+p = ["goto_prev_paragraph","collapse_selection","flip_selections"]
+b = "@F(;"
+c = "@F{;"
+s = "@jF\";"
 # c = "goto_next_comment"
-# p = "goto_next_paragraph"
 # a = "goto_next_parameter"
 # d = "goto_next_diag"
 # e = "goto_next_entry"
 # g = "goto_next_change"
 # w = "rotate_view" 
 # h = "repeat_last_motion" 
-F = "goto_prev_function"
 # C = "goto_prev_comment"
-# P = "goto_prev_paragraph"
 # A = "goto_prev_parameter"
 # D = "goto_prev_diag"
 # E = "goto_prev_entry"
 # G = "goto_prev_change"
 # W = "rotate_view" 
-k = "repeat_last_motion" 
-b = "@f(;"
-p = "@F(;"
-g = "@f{;"
-t = "@F{;"
  
 [keys.normal.m.n]
  "\"" = "@f\";mim"
@@ -134,9 +138,10 @@ r=[":config-reload",":reload-all"]
 i = ":toggle lsp.display-inlay-hints"
 d = ":toggle inline-diagnostics.cursor-line disable hint"
 q=":qa!"
+f=":sh echo  \"%{buffer_name} line:%{cursor_line}\" | pbcopy"
 # ret="file_explorer_in_current_buffer_directory"
 # o="file_explorer_in_current_buffer_directory"
-o = [
+y = [
   ':sh rm -f /tmp/unique-file',
   ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
   ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
@@ -160,9 +165,10 @@ normal= "block"
 cursorline = true
 color-modes = true
 mouse=true
-line-number = "relative"
+# line-number = "relative"
 jump-label-alphabet="nterisoagmufhdlp"
-gutters=["diff","diagnostics","line-numbers","spacer","spacer"]
+# gutters=["diff","diagnostics","line-numbers","spacer","spacer"]
+gutters=["line-numbers","spacer","spacer"]
 default-yank-register="+"
 
 # end-of-line-diagnostics = "hint"

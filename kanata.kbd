@@ -1,0 +1,76 @@
+
+	
+
+(defcfg
+      process-unmapped-keys yes
+      log-layer-changes yes
+      chords-v2-min-idle-experimental 50
+      concurrent-tap-hold true
+      )
+
+(defvar
+      tap-time 150
+      hold-time 160
+      os-time 50
+)
+
+
+
+(defsrc
+      q w f p b   j l u y bspc
+      a s r t g   m n e i o
+      z x c d v   k h , . /
+      lsft enter  spc f13
+)
+
+(deflayer default
+      @q w f p b   j l u y bspc
+      a s r t g   m n e i o
+      z x c @d v   k @h , . /
+      lsft @enter  @spc @f13
+)
+
+(deflayer nav
+      esc   XX    XX    S-tab XX     pgup  esc   up    tab   del
+      (one-shot-press $os-time lalt) (one-shot-press $os-time lsft) (one-shot-press $os-time lmet) tab (one-shot-press $os-time lmet)   pgdn  left  down  right  ret
+      XX    XX    (one-shot-press $os-time lctl) del   XX     esc   (one-shot-press $os-time rctl)  vold  volu  pp
+            _ _          _ _
+)
+
+(deflayer sym
+      S-1  S-2  S-3  S-4  S-5    _    _    _    _    _
+      S-grv [    S-[  S-9  -     S-=  S-0  S-]  ]    S-\
+      grv  grv  '    S-'  _      =    S-;  ;    S-8  \
+           _    _        _    _
+)
+
+(deflayer ui
+      XX    C-S-tab   A-up   C-tab   M-grv   XX   M-tab   (multi lctl lsft lalt lmet spc)   M-S-tab   _
+      esc   A-left    A-down A-right XX      XX   (multi lctl lsft lalt lmet left)  (multi lctl lsft lalt lmet down)  (multi lctl lsft lalt lmet right)  XX
+         XX XX XX   XX   mrgt   XX   XX   XX   XX   XX
+            _ _   _ _
+)
+(deflayer xxx
+      _ _ _ _ _   _ _ _ _ _
+      _ _ _ _ _   _ _ _ _ _
+      _ _ _ _ _   _ _ _ _ _
+            _ _   _ _
+)
+
+
+
+
+
+(defalias
+      h (tap-hold-release $tap-time $hold-time h lctl (require-prior-idle 100) )
+      d (tap-hold-release $tap-time $hold-time d lctl (require-prior-idle 100) )
+      enter (tap-hold $tap-time $hold-time enter lmet)
+      spc (tap-hold-order $tap-time $hold-time spc (layer-while-held nav))
+      f13 (tap-hold $tap-time $hold-time f13 (layer-while-held sym))
+      q (tap-hold $tap-time $hold-time q (layer-while-held ui))
+)
+
+(defchordsv2-experimental
+      (f p) esc 100 all-released ()
+      (w p) tab 100 all-released ()
+)

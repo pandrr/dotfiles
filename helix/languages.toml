@@ -6,11 +6,15 @@ args = ["-config", "/Users/tom/.config/helix/snippets.js.json"]
 command = "snippets-ls"
 args = ["-config", "/Users/tom/.config/helix/snippets.html.json"]
 
+
+
 [[language]]
 name = "javascript"
-language-servers = [  "typescript-language-server", "snippets-ls-js" ]
-auto-format =true 
+language-servers = ["typescript-language-server", "snippets-ls-js" ]
+auto-format =true
 formatter = { command = "eslint.sh", args = [] }
+
+
 
 [[language]]
 name = "html"
