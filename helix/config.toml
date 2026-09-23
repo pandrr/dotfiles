@@ -85,15 +85,15 @@ p = ["goto_next_paragraph","collapse_selection","flip_selections","move_line_dow
 f = "goto_next_function"
 b = "@f(;"
 c = "@f{;"
-s = "@f\";"
+q = "@f\";"
 d = "@x\"ay\"ap"
+F = "goto_prev_function"
+P = ["goto_prev_paragraph","collapse_selection","flip_selections"]
+B = "@F(;"
+C = "@F{;"
+Q = "@jF\";"
 
-[keys.normal.K]
-f = "goto_prev_function"
-p = ["goto_prev_paragraph","collapse_selection","flip_selections"]
-b = "@F(;"
-c = "@F{;"
-s = "@jF\";"
+# [keys.normal.K]
 # c = "goto_next_comment"
 # a = "goto_next_parameter"
 # d = "goto_next_diag"
@@ -136,7 +136,7 @@ space="symbol_picker"
 c=":config-open"
 r=[":config-reload",":reload-all"]
 i = ":toggle lsp.display-inlay-hints"
-d = ":toggle inline-diagnostics.cursor-line disable hint"
+# d = ":toggle inline-diagnostics.cursor-line disable hint"
 q=":qa!"
 f=":sh echo  \"%{buffer_name} line:%{cursor_line}\" | pbcopy"
 # ret="file_explorer_in_current_buffer_directory"
@@ -168,7 +168,7 @@ mouse=true
 # line-number = "relative"
 jump-label-alphabet="nterisoagmufhdlp"
 # gutters=["diff","diagnostics","line-numbers","spacer","spacer"]
-gutters=["line-numbers","spacer","spacer"]
+gutters=["diagnostics","line-numbers","spacer","spacer"]
 default-yank-register="+"
 
 # end-of-line-diagnostics = "hint"
