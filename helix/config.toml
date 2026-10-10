@@ -131,6 +131,7 @@ ret = "file_explorer_in_current_buffer_directory"
 e = "file_explorer_in_current_buffer_directory"
 s=":w"
 space="symbol_picker"
+Q=":qa!"
 
 [keys.normal.backspace]
 c=":config-open"
@@ -167,8 +168,8 @@ color-modes = true
 mouse=true
 # line-number = "relative"
 jump-label-alphabet="nterisoagmufhdlp"
-# gutters=["diff","diagnostics","line-numbers","spacer","spacer"]
-gutters=["diagnostics","line-numbers","spacer","spacer"]
+gutters=["diff","diagnostics","line-numbers","spacer","spacer"]
+# gutters=["diagnostics","line-numbers","spacer","spacer"]
 default-yank-register="+"
 
 # end-of-line-diagnostics = "hint"

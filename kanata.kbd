@@ -19,6 +19,7 @@
 
 
 (defsrc
+      1 2 3 4 5   6 7 8 9 0
       q w f p b   j l u y bspc
       a s r t g   m n e i o
       z x c d v   k h , . /
@@ -26,13 +27,15 @@
 )
 
 (deflayer default
-      @q    w  f  p   b     j  l   u  y  XX
-      a     s  r  t   g     m  n   e  i  o
-      z     x  c  @d  @v    @k @h  ,  .  @slsh
+      @1 2 3 4 5   6 7 8 9 0
+      q    w  f  p   b     j  l   u  y  XX
+      @a     s  r  t   g     m  n   e  i  @o
+      z     x  c  d  @v    @k h  ,  .  @slsh
       lsft @enter           @spc @f13
 )
 
 (deflayer nav
+      _ _ _ _ _  _ _ _ _ _
       esc   XX    XX    S-tab XX     pgup  esc   up    tab   del
       (one-shot-press $os-time lalt) (one-shot-press $os-time lsft) (one-shot-press $os-time lmet) tab (one-shot-press $os-time lmet)   pgdn  left  down  right  ret
       XX    XX    (one-shot-press $os-time lctl) del   XX     esc   bspc  vold  volu  pp
@@ -41,18 +44,30 @@
 
 (deflayer sym
       1     2    3    4    5        6    7    8    9    0
+      1     2    3    4    5        6    7    8    9    0
       S-grv [    S-[  S-9  -        S-=  S-0  S-]  ]    S-\
       grv   grv  '    S-'  S--      =    S-;  ;    S-8  \
                       _    _        _    _
 )
 
 (deflayer ui
-      XX    C-S-tab  A-up    C-tab    M-grv    XX   M-tab   (multi lctl lsft lalt lmet spc)   M-S-tab   _
-      esc   A-left   A-down  A-right  XX       XX   (multi lctl lsft lalt lmet left)  (multi lctl lsft lalt lmet down)  (multi lctl lsft lalt lmet right)  XX
+      XX    C-S-tab  XX    C-tab    M-grv   _ _ _ _ _
+      XX    XX       A-up   XX XX    XX   M-tab   (multi lctl lsft lalt lmet spc)   M-S-tab   _
+      XX   A-left   A-down  A-right  XX       XX   (multi lctl lsft lalt lmet left)  (multi lctl lsft lalt lmet down)  (multi lctl lsft lalt lmet right)  XX
       XX    XX       XX      XX       mrgt    XX   XX   XX   XX   XX
             _ _   _ _
 )
+
+(deflayer mouse
+      _ _ _ _ _   _ _ _ _ _
+      _ _ _ _ _   _ _ _ _ _
+      _ _ _ _ _   _ _ _ _ _
+      _ _ _ _ _   _ _ _ _ _
+            _ _   _ _
+)
+
 (deflayer xxx
+      _ _ _ _ _   _ _ _ _ _
       _ _ _ _ _   _ _ _ _ _
       _ _ _ _ _   _ _ _ _ _
       _ _ _ _ _   _ _ _ _ _
@@ -64,22 +79,25 @@
 
 
 (defalias
-      h (tap-hold-release $tap-time 350 h lctl (require-prior-idle 300) )
-      d (tap-hold-release $tap-time 350 d lctl (require-prior-idle 300) )
-      k (tap-hold-release $tap-time 350 k lalt (require-prior-idle 300) )
-      v (tap-hold-release $tap-time 350 v lalt (require-prior-idle 300) )
+      k (tap-hold-release $tap-time 250 k lctl (require-prior-idle 300) )
+      v (tap-hold-release $tap-time 250 v lctl (require-prior-idle 300) )
+
+      a (tap-hold-release $tap-time 250 a lalt (require-prior-idle 300) )
+      o (tap-hold-release $tap-time 250 o lalt (require-prior-idle 300) )
+
+      g (tap-hold-release $tap-time 250 g lalt (require-prior-idle 300) )
+      m (tap-hold-release $tap-time 250 m lalt (require-prior-idle 300) )
 
       enter (tap-hold $tap-time $hold-time enter lmet)
       spc (tap-hold-release $tap-time 200 spc (layer-while-held nav ) (require-prior-idle 100) )
 
       f13 (tap-hold 150 155 f13 (layer-while-held sym))
-      q (tap-hold $tap-time 250 q (layer-while-held ui))
+      1 (tap-hold $tap-time 250 1 (layer-while-held ui))
       slsh (tap-hold $tap-time 250 / (layer-while-held ui))
 )
 
 (defchordsv2-experimental
       (f p) esc 100 all-released ()
       (w p) tab 100 all-released ()
-      (k h) bspc 100 all-released ()
       (h ,) bspc 100 all-released ()
 )

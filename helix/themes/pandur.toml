@@ -83,7 +83,8 @@
 "diagnostic.error"={"fg"="error",underline.style="line",underline.color="error"}
 "diagnostic.hint"={"fg"="hint",underline.style="line",underline.color="hint"}
 "diagnostic.info"={"fg"="hint",underline.style="line",underline.color="hint"}
-"diagnostic.warning"={"fg"="warn",underline.style="line",underline.color="warn"}
+"diagnostic.warning"={"fg"="warn",underline.style="line",underline.color="error" }
+"diagnostic.deprecated"={"fg"="error",modifiers = ["crossed_out"] }
 
 "markup.heading"="c6"
 "markup.bold"="c2"

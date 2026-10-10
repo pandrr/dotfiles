@@ -1,0 +1,77 @@
+
+
+;; defaults write -g ApplePressAndHoldEnabled -bool false
+	
+
+(defcfg
+      process-unmapped-keys yes
+      log-layer-changes yes
+      chords-v2-min-idle-experimental 50
+      concurrent-tap-hold true
+      )
+
+(defvar
+      tap-time 140
+      hold-time 150
+      os-time 50
+)
+
+
+(defsrc
+      q w f p b   j l u y bspc
+      a s r t g   m n e i o
+      z x c d v   k h , . /
+      lsft enter  spc f13
+)
+
+(deflayer default
+      q    w  f  p   b     j  l   u  y  XX
+      a     s  r  @t   g     m  n   e  i  o
+      z     x  c  d  v    k h  ,  .  _
+      _ _        _ _
+)
+
+
+(deflayer mouse
+      @fst _ _ _ _   _ _ @ms↑ _ _
+      _ @vsl @fst _ _   _ @ms← @ms↓ @ms→ mmid
+      _ _ _ _ _   _ _ _ _ _
+        @vsl @fst  mlft mrgt
+)
+
+(deflayer xxx
+      _ _ _ _ _   _ _ _ _ _
+      _ _ _ _ _   _ _ _ _ _
+      _ _ _ _ _   _ _ _ _ _
+            _ _   _ _
+)
+
+
+
+
+
+(defalias
+  fst (movemouse-speed 400)
+  slw (movemouse-speed 100)
+  vsl (movemouse-speed 25)
+
+  mwu (mwheel-up 50 120)
+  mwd (mwheel-down 50 120)
+  mwl (mwheel-left 50 120)
+  mwr (mwheel-right 50 120)
+
+  ms↑ (movemouse-up 4 4)
+  ms← (movemouse-left 4 4)
+  ms↓ (movemouse-down 4 4)
+  ms→ (movemouse-right 4 4)
+
+
+      t (tap-hold-release $tap-time 200 t (layer-while-held mouse) (require-prior-idle 100) )
+
+)
+
+ (defchordsv2-experimental
+       (f p) esc 100 all-released ()
+       (w p) tab 100 all-released ()
+       (h ,) bspc 100 all-released ()
+ )
