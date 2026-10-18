@@ -92,6 +92,9 @@
 "markup.list"="c6"
 "markup.link"="c4"
 
+"diff.delta" = {"fg" = 'yellow' }
+"diff.minus" = {"fg" = 'red' }
+"diff.plus" = { "fg" = 'blue' }
 
 "rainbow" = ["#ff000","#00ff00","#0000ff"]
 
