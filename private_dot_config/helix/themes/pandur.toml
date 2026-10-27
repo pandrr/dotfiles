@@ -1,0 +1,133 @@
+# inherits = "catppuccin_mocha"
+
+"ui.text" = "g6"
+"ui.background" ={bg= "g1"}
+"ui.selection" = {bg="g3",fg="yellow"}
+"ui.cursor" = {bg="yellow",fg="g1"}
+"ui.cursor.select" = {bg="yellow",fg="g1"}
+"ui.cursor.match" = {bg="#000000",fg="yellow"}
+
+"ui.linenr" = { fg = "g3" }
+"ui.linenr.selected" = { fg = "g9" }
+"ui.cursorline.primary" = { bg = "linehl" }
+"ui.virtual.jump-label"={fg="yellow"}
+"ui.virtual"="g3"
+"ui.virtual.indent-guide"={fg="#444444"}
+
+"ui.highlight" = { fg = "#0000ff", bg = "linehl"}
+"ui.highlight.frameline" = { fg = "c2" }
+"ui.window"={"fg"="winbg","bg"="winbg"}
+"ui.popup"={"fg"="g3","bg"="winbg"}
+"ui.text.focus" = { fg = "c5", bg = "linehl" }
+"ui.text.directory" = { fg = "g2", bg = "", modifiers = [""] }
+"ui.menu.selected"={fg="yellow",bg="g3"}
+
+"ui.statusline" = { fg = "g6", bg = "g2" }
+"ui.text.info"={fg="g6"}
+"ui.popup.info"={fg="g3"}
+"ui.statusline.inactive" = { fg = "g3", bg = "g1" }
+"ui.statusline.normal" = { fg = "g1", bg = "g3", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "g1", bg = "c6", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "g1", bg = "selection", modifiers = ["bold"] }
+
+
+"tag"="g9"
+"comment" = { fg = "g4", modifiers = ["italic"] }
+# "comment.block" = {"fg" = "#00ff00", "modifiers" = ["italic"] }
+# "comment.line" = {"fg" = "#0000ff", "modifiers" = ["italic"] }
+# "comment.block.documentation" = { fg = "#ff0000", modifiers = ["italic"] }
+# "comment.block.documentation" = { fg = "c3", modifiers = ["italic"] }
+
+"constructor"="g9"
+"keyword" = { fg = "g7", modifiers = ["italic"] }
+# "keyword.control" = { fg = "g6", modifiers = ["bold"] }
+# "keyword.control.conditional" = { fg = "g6", modifiers = ["bold"] }
+"keyword.control.repeat" = { fg = "g7", modifiers = ["italic"] }
+# "keyword.control.import" = { fg = "g6", modifiers = ["bold"] }
+"keyword.control.return" = { fg = "g7", modifiers = ["italic"] }
+# "keyword.control.exception" = { fg = "red40", modifiers = ["bold"] }
+# "keyword.function" = "red"
+# "keyword.function" = { fg = "g6", modifiers = ["bold", "italic"] }
+# "keyword.storage" = { fg = "g6", modifiers = ["bold"] }
+#  "keyword.storage.modifier" = { fg = "red", modifiers = ["italic"] }
+
+"variable" = {fg="g9",modifiers=["bold"]}
+"variable.builtin" = { fg = "c1", modifiers = [""] }
+"variable.other.member" = "g7"
+
+# "variable.parameter" = { fg = "g7", modifiers = ["italic"] }
+# "variable.other.member" = { fg = "magenta30", modifiers = ["italic"] }
+
+# "label" = { fg = "blue", modifiers = ["italic"] }
+
+"punctuation" = "g4"
+"operator"="g5"
+# "punctuation.special" = "#ff0000"
+"punctuation.bracket" = "c4"
+# "punctuation.delimiter" = "#777777"
+
+
+"function" = { fg = "c2", modifiers = [""]}
+# "function.builtin" = { fg = "c2", modifiers = ["italic"] }
+# "function.method" = { fg = "red", modifiers = ["italic"] }
+ 
+"string" = {"fg"="c5"}
+"constant" = {"fg"="c6","modifiers"=["italic"]}
+"constant.numeric" = {"fg"="c6","modifiers"=["italic"]}
+
+"error"={"fg"="error"}
+"hint"={"fg"="hint"}
+"info"={"fg"="hint"}
+"warning"={"fg"="warn"}
+
+"diagnostic.error"={"fg"="error",underline.style="line",underline.color="error"}
+"diagnostic.hint"={"fg"="hint",underline.style="line",underline.color="hint"}
+"diagnostic.info"={"fg"="hint",underline.style="line",underline.color="hint"}
+"diagnostic.warning"={"fg"="warn",underline.style="line",underline.color="error" }
+"diagnostic.deprecated"={"fg"="error",modifiers = ["crossed_out"] }
+
+"markup.heading"="c6"
+"markup.bold"="c2"
+"markup.italic"="c2"
+"markup.list"="c6"
+"markup.link"="c4"
+
+"diff.delta" = {"fg" = 'yellow' }
+"diff.minus" = {"fg" = 'red' }
+"diff.plus" = { "fg" = 'blue' }
+
+"rainbow" = ["#ff000","#00ff00","#0000ff"]
+
+[palette]
+g1 = "#202020"
+g2 = "#000000"
+g3 = "#555555"
+g4 = "#696969"
+c1 = "#787878"
+g5 = "#888888"
+g6 = "#999999"
+g7 = "#aaaaaa"
+g8 = "#bbbbbb"
+g9 = "#cccccc"
+c2 = "#dddddd"
+
+# c4 = "#55aabb" #brackets
+# c5 = "#77ccaa" #strings
+# c6 = "#22ccdd" #numbers
+ 
+c4 = "#aa77cc" #brackets
+c5 = "#55C5E4" #strings
+c6 = "#84DDEA" #numbers
+ 
+# c4 = "#bbaa55" #brackets
+# c5 = "#aacc77" #strings
+# c6 = "#ddcc22" #numbers
+
+error="#AA7777"
+warn="#AAAA88"
+hint="#4488AA"
+selection="#992288"
+yellow="#ffff00"
+winbg="#000000"
+linehl="#000000"
+

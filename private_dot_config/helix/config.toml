@@ -1,0 +1,242 @@
+# theme = "nord"
+# theme = "catppuccin_mocha"
+# theme = "catppuccin_frappe"
+# theme = "carbonfox"
+# theme = "tokyonight"
+# theme = "ayu_mirage"
+# theme = "tokyonight_moon"
+# theme = "monokai_pro_octagon"
+# theme= "starlight"
+#theme = "carbon"
+theme="pandur"
+
+[keys.insert]
+"C-space" = "completion"
+up=["normal_mode","move_line_up"]
+down=["normal_mode","move_line_down"]
+right=["normal_mode","move_char_right"]
+left=["normal_mode","move_char_left"]
+C-o = ["normal_mode","jump_backward"]
+C-i = ["normal_mode","jump_forward"]
+# C-ret = "insert_newline"
+# C-p= "paste_after"
+# C-c= "normal_mode"
+
+[keys.normal]
+c = "change_selection_noyank"
+X = "select_line_above"
+tab = "command_mode"
+esc = ["save_selection","collapse_selection","keep_primary_selection"]
+# C-m= "@mim"
+# ret="@be"
+ 
+"(" = ["select_prev_sibling","collapse_selection"]
+")" = ["select_next_sibling","collapse_selection"]
+
+# move current line up/down
+S-up = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+
+C-k = ["select_mode", "goto_line_end","delete_selection"]
+S-d="delete_char_backward"
+
+# C-w="delete_word_backward"
+# C-s = ":w" # write file
+# k = "rotate_view" 
+# C-e = "page_cursor_half_down"
+# k="move_char_left"
+# 
+# ret="goto_word"
+ret = "select_line_below"
+S-ret = "select_line_above"
+# j="move_line_up"
+# l="move_line_down"
+# C-l = "@F{<esc>"
+# C-y = "@f{<esc>"
+# L = ["select_line_above"]
+j = ["move_prev_sub_word_start"]
+l = ["move_next_sub_word_end"]
+h= "expand_selection" 
+# 'A-w' = ["move_next_sub_word_start"]
+# 'A-e' = ["move_next_sub_word_end"]
+# 'A-b' = ["move_prev_sub_word_start"] 
+V="@vgl<esc>" # select to end of line
+
+# search for selected word and add cursor...
+A-s = ["save_selection", "select_mode","search_selection","extend_search_next"]
+
+","="flip_selections"
+# "home"="@gs"
+# C-ret = "insert_newline"
+# "?" = "@be*/"
+"?" = [ "search_selection", "search_next"]
+
+# home = "move_prev_word_start"
+# end= "move_next_word_start" 
+pageup="page_cursor_half_up"
+pagedown="page_cursor_half_down"
+# [keys.normal.m.n]
+#  "(" = "@s\\(<ret>nmi(" # inside next ()
+#  "[" = "@s\\[<ret>nmi[" 
+#  "\"" = "@s\\\"<ret>nmi\"" 
+
+[keys.normal.k]
+p = ["goto_next_paragraph","collapse_selection","flip_selections","move_line_down"]
+f = "goto_next_function"
+b = "@f(;"
+c = "@f{;"
+q = "@f\";"
+d = "@x\"ay\"ap"
+F = "goto_prev_function"
+P = ["goto_prev_paragraph","collapse_selection","flip_selections"]
+B = "@F(;"
+C = "@F{;"
+Q = "@jF\";"
+
+# [keys.normal.K]
+# c = "goto_next_comment"
+# a = "goto_next_parameter"
+# d = "goto_next_diag"
+# e = "goto_next_entry"
+# g = "goto_next_change"
+# w = "rotate_view" 
+# h = "repeat_last_motion" 
+# C = "goto_prev_comment"
+# A = "goto_prev_parameter"
+# D = "goto_prev_diag"
+# E = "goto_prev_entry"
+# G = "goto_prev_change"
+# W = "rotate_view" 
+ 
+[keys.normal.m.n]
+ "\"" = "@f\";mim"
+ "(" = "@f(;mim"
+ "{" = "@f{;mim"
+ "[" = "@f[;mim"
+
+
+[keys.select]
+A-s = ["extend_search_next"]
+
+
+
+[keys.normal.g]
+"," = "goto_next_diag"
+"<" = "goto_prev_diag"
+"i" = "jump_forward"
+"o" = "jump_backward"
+
+[keys.normal."space"]
+ret = "file_explorer_in_current_buffer_directory"
+e = "file_explorer_in_current_buffer_directory"
+s=":w"
+space="symbol_picker"
+Q=":qa!"
+
+[keys.normal.backspace]
+c=":config-open"
+r=[":config-reload",":reload-all"]
+i = ":toggle lsp.display-inlay-hints"
+# d = ":toggle inline-diagnostics.cursor-line disable hint"
+q=":qa!"
+f=":sh echo  \"%{buffer_name} line:%{cursor_line}\" | pbcopy"
+# ret="file_explorer_in_current_buffer_directory"
+# o="file_explorer_in_current_buffer_directory"
+y = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+  ':set mouse false',
+  ':set mouse true'
+]
+
+# k="file_picker"
+b = ":sh git -C $(dirname $(realpath %{buffer_name})) blame -L %{cursor_line},%{cursor_line} $(realpath %{buffer_name})"
+
+
+[editor.cursor-shape]
+insert = "bar"
+select = "block"
+normal= "block"
+
+[editor]
+# rainbow-brackets = true
+cursorline = true
+color-modes = true
+mouse=true
+true-color=true
+# line-number = "relative"
+jump-label-alphabet="nterisoagmufhdlp"
+gutters=["diff","diagnostics","line-numbers","spacer","spacer"]
+# gutters=["diagnostics","line-numbers","spacer","spacer"]
+default-yank-register="+"
+
+# end-of-line-diagnostics = "hint"
+ 
+completion-timeout=5
+
+# [editor.inline-diagnostics]
+# cursor-line = "hint"
+# 
+# [editor.inline-diagnostics]
+# cursor-line = "hint"
+# end-of-line-diagnostics = "hint"
+# [editor.inline-diagnostics]
+# cursor-line = "hint" # show warnings and errors on the cursorline inline
+
+[editor.file-picker]
+git-ignore=false
+ignore=true
+
+[editor.whitespace.render]
+tab = "none"
+nbsp = "none"
+nnbsp = "none"
+newline = "all"
+
+[editor.whitespace.characters]
+newline = "⌞" #"·"
+
+[editor.statusline]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+left = ["mode","file-base-name" ] 
+center = ["file-modification-indicator","read-only-indicator"]
+right=[ "position","spacer","diagnostics","primary-selection-length","position-percentage", "spacer"]
+
+[editor.indent-guides]
+render = true
+skip-levels=1
+
+
+
+
+# [editor.cmdline]
+# style = "popup"
+# use-full-height = false
+# show-icons = false
+
+# [editor.notifications.emojis]
+# info = ""
+# warning = ""
+# error = ""
+# success = ""
+
+# [editor.notifications]
+# enable = true
+# style = "popup"
+# position = "top-right"
+# default-timeout = 1000 # Set to 3 seconds if that's what you intended
+# padding = 1
+
+# [editor.notifications.shadow]
+# enable = false 
+# offset-x = 0
+# offset-y = 0
+
+# [editor.notifications.border]
+# enable=false
+
