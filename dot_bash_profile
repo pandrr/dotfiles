@@ -6,13 +6,18 @@ export EDITOR=hx
 
 
 
+alias gps="git push"
+alias gpl="git pull --no-edit"
 
 
 alias ..="cd .."
 alias ls="ls -G"
 alias l="ls -lah"
-alias z="zoxide"
 
+alias z="zoxide"
+alias y="yazi"
+alias vi="hx"
+alias h="hx"
 
 
 
