@@ -1,4 +1,4 @@
-[ -f /etc/skel/.bashrc ] && . /etc/skel/.bashrc
+[ -f ~/.bashrc ] && . ~/.bashrc
 
 
 export GIT_EDITOR=hx
@@ -37,5 +37,9 @@ source <(fzf --bash)
 
 
 eval "$(zoxide init bash)"
-PROMPT='%F{#00aaee}horst6 %F{#33ddff}%5/%F{cyan}$(git_branch) %F{yellow}›%f%k'
+# PROMPT='%F{#00aaee}horst6 %F{#33ddff}%5/%F{cyan}$(git_branch) %F{yellow}›%f%k'
 
+git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+PS1='\[\e[38;2;0;170;238m\]\h \[\e[38;2;51;221;255m\]\w\[\e[36m\]$(b=$(git branch --show-current 2>/dev/null) && [ -n "$b" ] && echo " ($b)") \[\e[33m\]›\[\e[0m\] '
