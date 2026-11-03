@@ -11,7 +11,7 @@ alias gpl="git pull --no-edit"
 
 
 alias ..="cd .."
-alias ls="ls -G"
+alias ls="ls -G --color=auto"
 alias l="ls -lah"
 
 alias z="zoxide"
