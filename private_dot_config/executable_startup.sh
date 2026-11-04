@@ -1,0 +1,45 @@
+
+
+export GIT_EDITOR=hx
+export EDITOR=hx
+
+
+
+alias gps="git push"
+alias gpl="git pull --no-edit"
+
+
+alias ..="cd .."
+alias ls="ls -G --color=auto"
+alias l="ls -lah"
+
+alias z="zoxide"
+alias y="yazi"
+alias vi="hx"
+alias h="hx"
+alias g="lazygit"
+
+
+
+
+
+
+export FZF_DEFAULT_COMMAND='find . -type d \( -name node_modules -o -name .git \) -prune -o -type f -print'
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --color=fg:#a1a1a1,fg+:#d0d0d0,bg:#000000,bg+:#262626
+  --color=hl:#5e5e5e,hl+:#5fd7ff,info:#afaf87,marker:#87ff00
+  --color=prompt:#6e6e6e,spinner:#c1c1c1,pointer:#fbff00,header:#87afaf
+  --color=border:#454545,separator:#4e4e4e,label:#aeaeae,query:#d9d9d9
+  --border="rounded" --border-label="" --preview-window="border-rounded" --prompt="> "
+  --marker="›" --pointer="›" --separator="─" --scrollbar="│"'
+
+source <(fzf --bash)
+
+
+eval "$(zoxide init bash)"
+# PROMPT='%F{#00aaee}horst6 %F{#33ddff}%5/%F{cyan}$(git_branch) %F{yellow}›%f%k'
+
+git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+PS1='\[\e[38;2;0;170;238m\]\h \[\e[38;2;51;221;255m\]\w\[\e[36m\]$(b=$(git branch --show-current 2>/dev/null) && [ -n "$b" ] && echo " ($b)") \[\e[33m\]›\[\e[0m\] '
